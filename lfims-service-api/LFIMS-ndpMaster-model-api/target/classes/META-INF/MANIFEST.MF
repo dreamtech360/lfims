@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1337925004369
+Build-Jdk: 1.6.0_24
+Built-By: SPADHI
+Bundle-Category: productCatalogue
+Bundle-ManifestVersion: 2
+Bundle-Name: LFIMS-ndpMaster-model-api
+Bundle-SymbolicName: LFIMS-ndpMaster-model-api
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.dreamtech360.lfims.model.api.ndpmaster;uses:="com.dr
+ eamtech360.lfims.model.base";version="0.0.1.SNAPSHOT",com.dreamtech360.
+ lfims.model.api.impl.ndpmaster;uses:="org.codehaus.jettison.json,com.dr
+ eamtech360.lfims.model.api.ndpmaster,com.dreamtech360.lfims.model.servi
+ ce.exception";version="0.0.1.SNAPSHOT",com.dreamtech360.lfims.model.sea
+ rch.impl.ndpmaster;uses:="com.dreamtech360.lfims.model.search,com.dream
+ tech360.lfims.model.api.ndpmaster";version="0.0.1.SNAPSHOT"
+Import-Package: com.dreamtech360.lfims.model.base;version="[0.0,1)",com.
+ dreamtech360.lfims.model.search;version="[0.0,1)",com.dreamtech360.lfim
+ s.model.service.exception;version="[0.0,1)",org.codehaus.jettison.json;
+ version="[1.1,2)"
+Tool: Bnd-1.50.0

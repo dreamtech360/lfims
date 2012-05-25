@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>lfims-service-api</artifactId>
+    <groupId>com.dreamtech360.lfims</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>LFIMS-base</artifactId>
+  <packaging>bundle</packaging>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-Category>LFIMS</Bundle-Category>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Export-Package>
+						com.dreamtech360.lfims.model.base,
+						com.dreamtech360.lfims.model.search,
+						com.dreamtech360.lfims.model.search.query,
+						com.dreamtech360.lfims.model.service.base,
+						com.dreamtech360.lfims.model.service.exception,
+						com.dreamtech360.lfims.service.base,
+						com.dreamtech360.lfims.util 
+						</Export-Package>
+					</instructions>
+					<remoteOBR>repo-rel</remoteOBR>
+					<prefixUrl>
+						file:///D:/Felix-4.2.0/Release
+					</prefixUrl>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+  <dependencies>
+  
+  	<dependency>
+      		<groupId>javax.jcr</groupId>
+      		<artifactId>jcr</artifactId>
+      </dependency>
+
+  	<dependency>
+  		<groupId>org.apache.jackrabbit</groupId>
+  		<artifactId>jackrabbit-core</artifactId>
+  	</dependency>
+  	
+  	<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+	</dependency>
+  </dependencies>
+</project>

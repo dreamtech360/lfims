@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1337924973260
+Build-Jdk: 1.6.0_24
+Built-By: SPADHI
+Bundle-Category: productCatalogue
+Bundle-ManifestVersion: 2
+Bundle-Name: LFIMS-bankMaster-model-api
+Bundle-SymbolicName: LFIMS-bankMaster-model-api
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.dreamtech360.lfims.model.api.bankmaster;uses:="com.d
+ reamtech360.lfims.model.base";version="0.0.1.SNAPSHOT",com.dreamtech360
+ .lfims.model.api.impl.bankmaster;uses:="org.codehaus.jettison.json,com.
+ dreamtech360.lfims.model.api.bankmaster,com.dreamtech360.lfims.model.se
+ rvice.exception";version="0.0.1.SNAPSHOT",com.dreamtech360.lfims.model.
+ search.impl.bankmaster;uses:="com.dreamtech360.lfims.model.search,com.d
+ reamtech360.lfims.model.api.bankmaster";version="0.0.1.SNAPSHOT"
+Import-Package: com.dreamtech360.lfims.model.base;version="[0.0,1)",com.
+ dreamtech360.lfims.model.search;version="[0.0,1)",com.dreamtech360.lfim
+ s.model.service.exception;version="[0.0,1)",org.codehaus.jettison.json;
+ version="[1.1,2)"
+Tool: Bnd-1.50.0

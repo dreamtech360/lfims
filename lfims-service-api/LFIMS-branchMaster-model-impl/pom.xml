@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>lfims-service-api</artifactId>
+    <groupId>com.dreamtech360.lfims</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>LFIMS-branchMaster-model-impl</artifactId>
+  <packaging>bundle</packaging>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-Category>productCatalogue</Bundle-Category>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Activator>com.dreamtech360.lfims.model.activator.BranchMasterModelImplActivator</Bundle-Activator>
+						<Export-Package>com.dreamtech360.lfims.model.service.impl.branchmaster </Export-Package>		
+   				</instructions>
+					<remoteOBR>repo-rel</remoteOBR>
+					<prefixUrl>
+						file:///D:/Felix-4.2.0/Release
+					</prefixUrl>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+  <dependencies>
+  	<dependency>
+  		<groupId>com.dreamtech360.lfims</groupId>
+  		<artifactId>LFIMS-branchMaster-model-api</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.osgi</groupId>
+  		<artifactId>org.osgi.core</artifactId>
+  		<scope>provided</scope>
+  	</dependency>
+  	
+  	<dependency>
+      		<groupId>javax.jcr</groupId>
+      		<artifactId>jcr</artifactId>
+      		
+     	</dependency>
+     	
+     
+<dependency>
+  <groupId>org.apache.jackrabbit</groupId>
+    <artifactId>jackrabbit-jcr-rmi</artifactId>
+  
+  </dependency>
+  
+	<dependency>
+  		<groupId>org.apache.jackrabbit</groupId>
+  		<artifactId>jackrabbit-core</artifactId>
+  		
+  	</dependency>
+
+    <dependency>
+    	<groupId>com.dreamtech360.lfims</groupId>
+    	<artifactId>LFIMS-base</artifactId>
+    	
+    </dependency>
+  </dependencies>
+</project>

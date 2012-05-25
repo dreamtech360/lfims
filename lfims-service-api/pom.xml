@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dreamtech360.lfims</groupId>
+  <artifactId>lfims-service-api</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>LFIMS-base</module>
+  	<module>LFIMS-bankMaster-model-api</module>
+  	<module>LFIMS-bankMaster-model-impl</module>
+  	<module>LFIMS-bankMaster-service</module>
+  	<module>LFIMS-branchMaster-model-api</module>
+  	<module>LFIMS-branchMaster-model-impl</module>
+  	<module>LFIMS-branchMaster-service</module>
+  	<module>LFIMS-advocateMaster-model-api</module>
+  	<module>LFIMS-advocateMaster-model-impl</module>
+  	<module>LFIMS-advocateMaster-service</module>
+  	<module>LFIMS-ourAdvocateMaster-model-api</module>
+  	<module>LFIMS-ourAdvocateMaster-model-impl</module>
+  	<module>LFIMS-ourAdvocateMaster-service</module>
+  	<module>LFIMS-courtMaster-model-api</module>
+  	<module>LFIMS-courtMaster-model-impl</module>
+  	<module>LFIMS-courtMaster-service</module>
+  	<module>LFIMS-expensesMaster-model-api</module>
+  	<module>LFIMS-expensesMaster-model-impl</module>
+  	<module>LFIMS-expensesMaster-service</module>
+  	<module>LFIMS-ndpMaster-model-api</module>
+  	<module>LFIMS-ndpMaster-model-impl</module>
+  	<module>LFIMS-ndpMaster-service</module>
+
+  	<module>LFIMS-caseManagement-model-api</module>
+  	<module>LFIMS-caseMgmtMaintenance-model-api</module>
+  	<module>LFIMS-caseMgmtMaintenance-model-impl</module>
+  	<module>LFIMS-caseMgmtMaintenance-service</module>
+  	<module>LFIMS-caseManagement-model-impl</module>
+  	
+  	<module>LFIMS-caseManagement-service</module>
+  	<module>LFIMS-pickList-service</module>
+  </modules>
+  
+   <build>
+   <pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.7</version>
+					<extensions>true</extensions>
+					<inherited>true</inherited>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		</build>
+  
+  <distributionManagement>
+		<!-- releases repo -->
+		<repository>
+			<id>repo-rel</id>
+			<url>file:///D:/Felix-4.2.0/Release</url>
+		</repository>
+	</distributionManagement>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.osgi</groupId>
+  			<artifactId>org.osgi.core</artifactId>
+  			<version>4.2.0</version>
+  		</dependency>
+  		<dependency>
+      		<groupId>javax.jcr</groupId>
+      		<artifactId>jcr</artifactId>
+      		<version>2.0</version>
+      		<scope>provided</scope>
+     	</dependency>
+
+  	<dependency>
+  		<groupId>org.apache.jackrabbit</groupId>
+  		<artifactId>jackrabbit-core</artifactId>
+  		<version>2.2.9</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	
+  	<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.9</version>
+			<scope>provided</scope>
+		</dependency>
+  		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		
+		
+		<dependency>
+  <groupId>org.apache.jackrabbit</groupId>
+    <artifactId>jackrabbit-jcr-rmi</artifactId>
+    <version>2.6-SNAPSHOT</version>
+  <scope>provided</scope>
+  </dependency>
+  	</dependencies>
+  </dependencyManagement>
+</project>

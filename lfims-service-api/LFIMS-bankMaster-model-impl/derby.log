@@ -1,0 +1,20 @@
+----------------------------------------------------------------
+2012-04-21 17:28:22.028 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0136-d5f2-8186-0000028d2e68
+on database directory D:\Felix-4.2.0\jackrabbit\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-04-21 17:28:24.185 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-0136-d5f2-8186-0000028d2e68
+on database directory D:\Felix-4.2.0\jackrabbit\workspaces\default\db  
+
+Database Class Loader started - derby.database.classpath=''
+
+2012-04-21 17:28:26.375 GMT:
+Shutting down instance 888c4022-0136-d5f2-8186-0000028d2e68
+----------------------------------------------------------------
+
+2012-04-21 17:28:26.639 GMT:
+Shutting down instance a816c00e-0136-d5f2-8186-0000028d2e68
+----------------------------------------------------------------

@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1337924999141
+Build-Jdk: 1.6.0_24
+Built-By: SPADHI
+Bundle-Category: productCatalogue
+Bundle-ManifestVersion: 2
+Bundle-Name: LFIMS-expensesMaster-model-api
+Bundle-SymbolicName: LFIMS-expensesMaster-model-api
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.dreamtech360.lfims.model.api.expensesmaster;uses:="c
+ om.dreamtech360.lfims.model.base";version="0.0.1.SNAPSHOT",com.dreamtec
+ h360.lfims.model.api.impl.expensesmaster;uses:="com.dreamtech360.lfims.
+ model.api.expensesmaster,org.codehaus.jettison.json,com.dreamtech360.lf
+ ims.model.service.exception";version="0.0.1.SNAPSHOT",com.dreamtech360.
+ lfims.model.search.impl.expensesmaster;uses:="com.dreamtech360.lfims.mo
+ del.search,com.dreamtech360.lfims.model.api.expensesmaster";version="0.
+ 0.1.SNAPSHOT"
+Import-Package: com.dreamtech360.lfims.model.base;version="[0.0,1)",com.
+ dreamtech360.lfims.model.search;version="[0.0,1)",com.dreamtech360.lfim
+ s.model.service.exception;version="[0.0,1)",org.codehaus.jettison.json;
+ version="[1.1,2)"
+Tool: Bnd-1.50.0
