@@ -4,7 +4,73 @@
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="src" path="LFIMS-advocateMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-advocateMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-advocateMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-base/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-bankMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-pickList-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-bankMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-bankMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-branchMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-branchMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-branchMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseManagement-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseManagement-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseManagement-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseMgmtMaintenance-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseMgmtMaintenance-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-caseMgmtMaintenance-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-courtMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-courtMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-courtMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-expensesMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-expensesMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-expensesMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ndpMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ndpMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ndpMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-model-api/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-model-impl/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-service/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="D:/springsource/maven-repository"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/osgi/org.osgi.core/4.2.0/org.osgi.core-4.2.0.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="org.osgi"/>
+			<attribute name="maven.artifactId" value="org.osgi.core"/>
+			<attribute name="maven.version" value="4.2.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/javax/jcr/jcr/2.0/jcr-2.0.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="javax.jcr"/>
+			<attribute name="maven.artifactId" value="jcr"/>
+			<attribute name="maven.version" value="2.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/apache/jackrabbit/jackrabbit-core/2.6-SNAPSHOT/jackrabbit-core-2.6-SNAPSHOT.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="org.apache.jackrabbit"/>
+			<attribute name="maven.artifactId" value="jackrabbit-core"/>
+			<attribute name="maven.version" value="2.6-SNAPSHOT"/>
+			<attribute name="maven.scope" value="provided"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/apache/jackrabbit/jackrabbit-jcr-rmi/2.6-SNAPSHOT/jackrabbit-jcr-rmi-2.6-SNAPSHOT.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="org.apache.jackrabbit"/>
+			<attribute name="maven.artifactId" value="jackrabbit-jcr-rmi"/>
+			<attribute name="maven.version" value="2.6-SNAPSHOT"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
