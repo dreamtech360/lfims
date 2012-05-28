@@ -1,0 +1,358 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dreamtech360.lfims</groupId>
+	<artifactId>lfims-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>LFIMS REST APIs</name>
+
+
+	<dependencies>
+	
+	<dependency>
+      		<groupId>javax.jcr</groupId>
+      		<artifactId>jcr</artifactId>
+      		<version>2.0</version>
+      		<scope>provided</scope>
+     	</dependency>
+
+  	<dependency>
+  		<groupId>org.apache.jackrabbit</groupId>
+  		<artifactId>jackrabbit-core</artifactId>
+  		<version>2.2.9</version>
+  		<scope>provided</scope>
+  	</dependency>
+	<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-bankMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-bankMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-bankMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-branchMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-branchMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-branchMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.9</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-xc</artifactId>
+			<version>1.9.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-advocateMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-advocateMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-advocateMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ourAdvocateMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ourAdvocateMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ourAdvocateMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-courtMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-courtMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-courtMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-expensesMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-expensesMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-expensesMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ndpMaster-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ndpMaster-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-ndpMaster-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseMgmtMaintenance-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseMgmtMaintenance-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseMgmtMaintenance-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseManagement-model-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseManagement-model-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-caseManagement-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.9</version>
+			<type>bundle</type>
+		</dependency>
+		
+    
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+
+			<!-- to generate the MANIFEST-FILE required by the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<manifestLocation>${project.build.directory}/META-INF</manifestLocation>
+					<supportedProjectTypes>
+						<supportedProjectType>bundle</supportedProjectType>
+						<supportedProjectType>war</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Import-Package>com.sun.jersey.api.core,com.sun.jersey.spi.container.servlet,*</Import-Package>
+						<Export-Package>com.dreamtech360.lfims.resources.api.*</Export-Package>
+						<Webapp-Context>lfims</Webapp-Context>
+						<Web-ContextPath>lfims</Web-ContextPath>
+						<Bundle-Activator>com.dreamtech360.lfims.resources.api.activator.LFIMSAPIActivator</Bundle-Activator>
+					</instructions>
+					<remoteOBR>repo-rel</remoteOBR>
+					<prefixUrl>
+						file:///D:/Felix-4.2.0/Release
+					</prefixUrl>
+				</configuration>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1-alpha-2</version>
+				<configuration>
+					<attachClasses>true</attachClasses>
+					<archive>
+						<manifestFile>${project.build.directory}/META-INF/MANIFEST.MF</manifestFile>
+						<manifestEntries>
+							<Bundle-ClassPath>WEB-INF/classes</Bundle-ClassPath>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<!-- releases repo -->
+		<repository>
+			<id>repo-rel</id>
+			<url>file:///D:/Felix-4.2.0/Release</url>
+		</repository>
+	</distributionManagement>
+</project>

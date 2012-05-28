@@ -1,0 +1,7 @@
+{
+    success: true,
+    advocateMaster: [
+         {id: '1',advocateName: 'Saudip Pal chaudhri',address1: 'address1',address2:'address2',pin:'7000109', contactPhone: '9831583774',email:'santosh_padhi@wipro.com'},
+         {id: '2',advocateName: 'Saudip Pal chaudhri',address1: 'address1',address2:'address2',pin:'7000109', contactPhone: '9831583774',email:'santosh_padhi@wipro.com'}
+    ]
+}
