@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337924987302
+Bnd-LastModified: 1338986378892
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.AdvocateMaste
@@ -12,13 +12,15 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: com.dreamtech360.lfims.service.impl.advocatemaster;uses:
  ="javax.jcr,com.dreamtech360.lfims.model.service.base,com.dreamtech360.
- lfims.model.service.impl.advocatemaster,org.osgi.framework,com.dreamtec
- h360.lfims.service.base,com.dreamtech360.lfims.model.api.advocatemaster
- ";version="0.0.1.SNAPSHOT"
+ lfims.model.service.impl.advocatemaster,com.dreamtech360.lfims.service.
+ transactionmanagement,org.osgi.framework,com.dreamtech360.lfims.service
+ .base,com.dreamtech360.lfims.model.api.advocatemaster";version="0.0.1.S
+ NAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.advocatemaster;version=
  "[0.0,1)",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",c
  om.dreamtech360.lfims.model.service.impl.advocatemaster;version="[0.0,1
  )",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech3
- 60.lfims.service.impl.advocatemaster,javax.jcr;version="[2.0,3)",org.os
+ 60.lfims.service.impl.advocatemaster,com.dreamtech360.lfims.service.tra
+ nsactionmanagement;version="[0.0,1)",javax.jcr;version="[2.0,3)",org.os
  gi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

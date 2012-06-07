@@ -9,7 +9,6 @@
 	<classpathentry kind="src" path="LFIMS-advocateMaster-service/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-base/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-bankMaster-model-api/src/main/java"/>
-	<classpathentry kind="src" path="LFIMS-pickList-service/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-bankMaster-model-impl/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-bankMaster-service/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-branchMaster-model-api/src/main/java"/>
@@ -33,6 +32,7 @@
 	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-model-api/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-model-impl/src/main/java"/>
 	<classpathentry kind="src" path="LFIMS-ourAdvocateMaster-service/src/main/java"/>
+	<classpathentry kind="src" path="LFIMS-cache-service/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
@@ -72,5 +72,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/springsource/maven-repository/net/sf/ehcache/ehcache-core/2.5.2/ehcache-core-2.5.2.jar"/>
+	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ow2-jotm-dist-2.1.9/lib/ow2-jta-1.1-spec.jar"/>
+	<classpathentry kind="src" path="/LFIMS-TransactionManager-Service"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -30,12 +30,17 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class ExpensesMasterMaintenanceService extends LFIMSModelJCRService<ExpensesMaster>
 {
 	private static LFIMSNodeStructure<ExpensesMaster> nodeStructure=null;
 	public ExpensesMasterMaintenanceService(Repository repository){
 		this.repository=repository;
+	}
+	public ExpensesMasterMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
 	}
 
 	@Override

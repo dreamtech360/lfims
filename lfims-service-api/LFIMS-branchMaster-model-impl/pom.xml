@@ -18,8 +18,8 @@
 					<instructions>
 						<Bundle-Category>productCatalogue</Bundle-Category>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Bundle-Activator>com.dreamtech360.lfims.model.activator.BranchMasterModelImplActivator</Bundle-Activator>
-						<Export-Package>com.dreamtech360.lfims.model.service.impl.branchmaster </Export-Package>		
+<!-- 						<Bundle-Activator>com.dreamtech360.lfims.model.activator.BranchMasterModelImplActivator</Bundle-Activator>
+ -->						<Export-Package>com.dreamtech360.lfims.model.service.impl.branchmaster </Export-Package>		
    				</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
@@ -67,5 +67,15 @@
     	<artifactId>LFIMS-base</artifactId>
     	
     </dependency>
+    
+    	  <dependency>
+    	<groupId>com.dreamtech360.lfims</groupId>
+    	   <artifactId>LFIMS-TransactionManager-Service</artifactId>
+    	  </dependency>
+    	  
+    	  <dependency>
+		 <groupId>javax.transaction</groupId>
+	 <artifactId>jta</artifactId>
+ </dependency>
   </dependencies>
 </project>

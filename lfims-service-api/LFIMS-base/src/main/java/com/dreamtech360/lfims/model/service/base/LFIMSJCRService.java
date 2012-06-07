@@ -16,6 +16,14 @@ import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
 import javax.jcr.nodetype.NoSuchNodeTypeException;
 import javax.jcr.version.VersionException;
+import javax.transaction.RollbackException;
+import javax.transaction.Synchronization;
+import javax.transaction.SystemException;
+import javax.transaction.TransactionManager;
+import javax.transaction.UserTransaction;
+import javax.transaction.xa.XAResource;
+
+
 
 import com.dreamtech360.lfims.model.base.LFIMSCompositObject;
 import com.dreamtech360.lfims.model.base.LFIMSNode;
@@ -26,6 +34,8 @@ public abstract class LFIMSJCRService<T> {
 
 
 	protected Repository repository=null;
+	protected TransactionManager transactionManager=null;
+	
 	
 	//This is a important method that all subclass should implement as per LFIMS architecture
 	//each and every object node is stored inside a List object node and hence the root
@@ -76,17 +86,30 @@ protected final Node initRootNode(LFIMSCompositObject<T> node) throws Repository
 	}
 
 
-	protected final void initSession() throws LoginException, RepositoryException{
+	protected final void initSession() throws LoginException, RepositoryException, IllegalStateException, RollbackException, SystemException{
 
 		Session session=null;
-		session = repository.login(new SimpleCredentials("admin","admin".toCharArray()));
-		LFIMSJCRSession jcrSession=new LFIMSJCRSession(session);
-		LFIMSJCRSessionThreadLocal.set(jcrSession);
-
+	
+		if(!LFIMSJCRSessionThreadLocal.exists()){
+			
+			session = repository.login(new SimpleCredentials("admin","admin".toCharArray()));
+	
+			
+			if(transactionManager!=null && transactionManager.getTransaction()!=null){
+				XAResource xaResource=(XAResource)session;
+				transactionManager.getTransaction().enlistResource(xaResource);
+				//If the call is in a transaction then the closure of the session will be done by the synchronizer registered with the transaction below
+				transactionManager.getTransaction().registerSynchronization(new LFIMSTransactionListner());
+			}
+			
+			LFIMSJCRSession jcrSession=new LFIMSJCRSession(session);
+			LFIMSJCRSessionThreadLocal.set(jcrSession);
+			
+		}
 	}
 
-	protected final void closeSession() throws AccessDeniedException, ItemExistsException, ReferentialIntegrityException, ConstraintViolationException, InvalidItemStateException, VersionException, LockException, NoSuchNodeTypeException, RepositoryException{
-		//saveSessionData();
+	protected final void closeSession()  {
+		
 		LFIMSJCRSessionThreadLocal.get().getSession().logout();
 		LFIMSJCRSessionThreadLocal.unset();
 	}

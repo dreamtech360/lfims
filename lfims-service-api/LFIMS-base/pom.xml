@@ -25,7 +25,8 @@
 						com.dreamtech360.lfims.model.service.base,
 						com.dreamtech360.lfims.model.service.exception,
 						com.dreamtech360.lfims.service.base,
-						com.dreamtech360.lfims.util 
+						com.dreamtech360.lfims.util,
+						com.dreamtech360.lfims.annotations 
 						</Export-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
@@ -49,9 +50,16 @@
   		<artifactId>jackrabbit-core</artifactId>
   	</dependency>
   	
+  	
   	<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
 	</dependency>
+	
+<dependency>
+		 <groupId>javax.transaction</groupId>
+	 <artifactId>jta</artifactId>
+ </dependency>
+ 
   </dependencies>
 </project>

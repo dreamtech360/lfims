@@ -15,6 +15,7 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector;
 
+
 import com.dreamtech360.lfims.model.api.bankmaster.BankMaster;
 import com.dreamtech360.lfims.model.api.impl.bankmaster.BankMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.bankmaster.MutableBankMasterImpl;
@@ -31,12 +32,18 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class BankMasterMaintenanceService extends LFIMSModelJCRService<BankMaster>
 {
 	private static LFIMSNodeStructure<BankMaster> nodeStructure=null;
 	public BankMasterMaintenanceService(Repository repository){
 		this.repository=repository;
+	} 
+	
+	public BankMasterMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
 	}
 
 	@Override

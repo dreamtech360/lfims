@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925000952
+Bnd-LastModified: 1338986388163
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
-Bundle-Activator: com.dreamtech360.lfims.model.activator.ExpensesMasterM
- odelImplActivator
 Bundle-Category: productCatalogue
 Bundle-ManifestVersion: 2
 Bundle-Name: LFIMS-expensesMaster-model-impl
@@ -16,7 +14,8 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.expensesmaster
  om.dreamtech360.lfims.model.search.query,com.dreamtech360.lfims.model.a
  pi.expensesmaster,com.dreamtech360.lfims.model.search,com.dreamtech360.
  lfims.model.base,com.dreamtech360.lfims.model.api.impl.expensesmaster,c
- om.dreamtech360.lfims.model.service.base";version="0.0.1.SNAPSHOT"
+ om.dreamtech360.lfims.model.service.base,com.dreamtech360.lfims.service
+ .transactionmanagement,javax.transaction";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.expensesmaster;version=
  "[0.0,1)",com.dreamtech360.lfims.model.api.impl.expensesmaster;version=
  "[0.0,1)",com.dreamtech360.lfims.model.base;version="[0.0,1)",com.dream
@@ -25,6 +24,7 @@ Import-Package: com.dreamtech360.lfims.model.api.expensesmaster;version=
  model.search.query;version="[0.0,1)",com.dreamtech360.lfims.model.servi
  ce.base;version="[0.0,1)",com.dreamtech360.lfims.model.service.exceptio
  n;version="[0.0,1)",com.dreamtech360.lfims.model.service.impl.expensesm
- aster,javax.jcr;version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)"
- ,org.osgi.framework;version="[1.5,2)"
+ aster,com.dreamtech360.lfims.service.transactionmanagement;version="[0.
+ 0,1)",javax.jcr;version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)"
+ ,javax.transaction,org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

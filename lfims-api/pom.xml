@@ -270,7 +270,12 @@
 			<type>bundle</type>
 		</dependency>
 		
-		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-cache-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+		</dependency>
 		
 		<dependency>
 			<groupId>com.sun.jersey</groupId>

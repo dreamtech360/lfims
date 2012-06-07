@@ -14,7 +14,7 @@ public abstract class  SearchParams<T> {
 	
 protected abstract LFIMSAttributeMapper<T> getSearchCriteriaKey(String attributeName);
 
-public Map<LFIMSAttributeMapper<T>,List<String>> parseFilterParameters(String jsonString) throws LFIMSModelException {
+public  Map<LFIMSAttributeMapper<T>,List<String>> parseFilterParameters(String jsonString) throws LFIMSModelException {
 	
 	JSONArray array=null;
 	Map<LFIMSAttributeMapper<T>,List<String>> parameters=new HashMap<LFIMSAttributeMapper<T>,List<String>>();

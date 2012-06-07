@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jcr.Node;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -23,11 +22,12 @@ import com.dreamtech360.lfims.model.api.advocatemaster.AdvocateMaster;
 import com.dreamtech360.lfims.model.api.bankmaster.BankMaster;
 import com.dreamtech360.lfims.model.api.branchmaster.BranchMaster;
 import com.dreamtech360.lfims.model.api.casemgmtmaintenance.CaseMgmtMaintenance;
-import com.dreamtech360.lfims.model.api.casemgmtmaintenance.MutableCaseMgmtMaintenance;
 import com.dreamtech360.lfims.model.api.courtmaster.CourtMaster;
 import com.dreamtech360.lfims.model.api.expensesmaster.ExpensesMaster;
+import com.dreamtech360.lfims.model.api.ndpmaster.NdpMaster;
+import com.dreamtech360.lfims.model.api.ouradvocatemaster.OurAdvocateMaster;
+
 import com.dreamtech360.lfims.model.api.impl.advocatemaster.MutableAdvocateMasterImpl;
-import com.dreamtech360.lfims.model.api.impl.bankmaster.BankMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.bankmaster.MutableBankMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.branchmaster.MutableBranchMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.casemgmtmaintenance.MutableCaseMgmtMaintenanceImpl;
@@ -35,39 +35,29 @@ import com.dreamtech360.lfims.model.api.impl.courtmaster.MutableCourtMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.expensesmaster.MutableExpensesMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.ndpmaster.MutableNdpMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.ouradvocatemaster.MutableOurAdvocateMasterImpl;
-import com.dreamtech360.lfims.model.api.ndpmaster.NdpMaster;
-import com.dreamtech360.lfims.model.api.ouradvocatemaster.OurAdvocateMaster;
+
 import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.search.LFIMSAttributeMapper;
-import com.dreamtech360.lfims.model.search.impl.advocatemaster.AdvocateMasterSearchParams;
+
 import com.dreamtech360.lfims.model.search.impl.bankmaster.BankMasterAttributeMapper;
-import com.dreamtech360.lfims.model.search.impl.bankmaster.BankMasterSearchParams;
-import com.dreamtech360.lfims.model.search.impl.branchmaster.BranchMasterSearchParams;
 import com.dreamtech360.lfims.model.search.impl.casemgmtmaintenance.CaseMgmtMaintenanceAttributeMapper;
+
 import com.dreamtech360.lfims.model.search.impl.casemgmtmaintenance.CaseMgmtMaintenanceSearchParams;
 import com.dreamtech360.lfims.model.search.impl.courtmaster.CourtMasterSearchParams;
 import com.dreamtech360.lfims.model.search.impl.expensesmaster.ExpensesMasterSearchParams;
 import com.dreamtech360.lfims.model.search.impl.ndpmaster.NdpMasterSearchParams;
 import com.dreamtech360.lfims.model.search.impl.ouradvocatemaster.OurAdvocateMasterSearchParams;
+import com.dreamtech360.lfims.model.search.impl.bankmaster.BankMasterSearchParams;
+import com.dreamtech360.lfims.model.search.impl.branchmaster.BranchMasterSearchParams;
+import com.dreamtech360.lfims.model.search.impl.advocatemaster.AdvocateMasterSearchParams;
+
+import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
+import com.dreamtech360.lfims.model.service.base.LFIMSModelService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
-import com.dreamtech360.lfims.model.service.impl.advocatemaster.AdvocateMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.bankmaster.BankMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.branchmaster.BranchMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.casemgmtmaintenance.CaseMgmtMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.courtmaster.CourtMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.expensesmaster.ExpensesMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.ndpmaster.NdpMasterMaintenanceService;
-import com.dreamtech360.lfims.model.service.impl.ouradvocatemaster.OurAdvocateMasterMaintenanceService;
-import com.dreamtech360.lfims.service.impl.advocatemaster.AdvocateMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.bankmaster.BankMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.branchmaster.BranchMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.casemgmtmaintenance.CaseMgmtMaintenanceServiceFactory;
-import com.dreamtech360.lfims.service.impl.courtmaster.CourtMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.expensesmaster.ExpensesMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.ndpmaster.NdpMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.ouradvocatemaster.OurAdvocateMasterServiceFactory;
-import com.dreamtech360.lfims.services.LFIMSServiceFactoryLocator;
+import com.dreamtech360.lfims.resources.api.activator.LFIMSAPIContext;
+import com.dreamtech360.lfims.service.base.LFIMSGenericServiceFactory;
+import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
 import com.dreamtech360.lfims.services.ServiceEnum;
 import com.dreamtech360.lfims.util.LFIMSJSONStringer;
 import com.sun.jersey.spi.resource.Singleton;
@@ -77,33 +67,35 @@ import com.sun.jersey.spi.resource.Singleton;
 public class LFIMSMaintenanceResource {
  
  
-	private BankMasterMaintenanceService bankMasterService=null;
-	private BranchMasterMaintenanceService branchMasterService=null;
-	private AdvocateMasterMaintenanceService advocateMasterService=null;
-	private OurAdvocateMasterMaintenanceService ourAdvocateMasterService=null;
-	private CourtMasterMaintenanceService courtMasterService=null;
-	private ExpensesMasterMaintenanceService expensesMasterService=null;
-	private NdpMasterMaintenanceService ndpMasterService=null;
-	private CaseMgmtMaintenanceService caseMgmtMaintenanceService=null;
+	private LFIMSModelService<BankMaster> bankMasterService=null;
+	private  LFIMSModelService<BranchMaster> branchMasterService=null;
+	private  LFIMSModelService<AdvocateMaster> advocateMasterService=null;
+	private  LFIMSModelService<OurAdvocateMaster> ourAdvocateMasterService=null;
+	private  LFIMSModelService<CourtMaster> courtMasterService=null;
+	private  LFIMSModelService<ExpensesMaster> expensesMasterService=null;
+	private  LFIMSModelService<NdpMaster> ndpMasterService=null;
+	private  LFIMSModelService<CaseMgmtMaintenance> caseMgmtMaintenanceService=null;
+	//private  LFIMSGenericService<CaseMgmtMaintenance> caseMgmtMaintenanceService=null;
+	//private  LFIMSGenericService<CaseMgmtMaintenance> caseMgmtMaintenanceService=null;
  
 	public LFIMSMaintenanceResource(){
 		System.out.println("LFIMSMaintenanceResource Constructor called");
-		BankMasterServiceFactory bankServiceFactory=(BankMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.BANK_MASTER_SERVICE);
-		BranchMasterServiceFactory branchServiceFactory=(BranchMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.BRANCH_MASTER_SERVICE);
-		AdvocateMasterServiceFactory advocateServiceFactory=(AdvocateMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.ADVOCATE_MASTER_SERVICE);
-		CourtMasterServiceFactory courtServiceFactory=(CourtMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.COURT_MASTER_SERVICE);
-		OurAdvocateMasterServiceFactory ourAdvocateServiceFactory=(OurAdvocateMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.OUR_ADVOCATE_MASTER_SERVICE);
-		ExpensesMasterServiceFactory expensesServiceFactory=(ExpensesMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.EXPENSES_MASTER_SERVICE);
-		NdpMasterServiceFactory ndpServiceFactory=(NdpMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.NDP_MASTER_SERVICE);
-		CaseMgmtMaintenanceServiceFactory caseMgmtMaintenanceServiceFactory=(CaseMgmtMaintenanceServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_MGMT_MAINTENANCE);
-		bankMasterService=(BankMasterMaintenanceService) bankServiceFactory.lookupService();
-		branchMasterService=(BranchMasterMaintenanceService) branchServiceFactory.lookupService();
-		advocateMasterService=(AdvocateMasterMaintenanceService) advocateServiceFactory.lookupService();
-		courtMasterService=(CourtMasterMaintenanceService) courtServiceFactory.lookupService();
-		ourAdvocateMasterService=(OurAdvocateMasterMaintenanceService) ourAdvocateServiceFactory.lookupService();
-		expensesMasterService=(ExpensesMasterMaintenanceService)expensesServiceFactory.lookupService();
-		ndpMasterService=(NdpMasterMaintenanceService)ndpServiceFactory.lookupService();
-		caseMgmtMaintenanceService=(CaseMgmtMaintenanceService)caseMgmtMaintenanceServiceFactory.lookupService();
+		LFIMSModelServiceFactory<BankMaster>  bankServiceFactory= LFIMSAPIContext.getService(ServiceEnum.BANK_MASTER_SERVICE);
+		LFIMSModelServiceFactory<BranchMaster> branchServiceFactory=LFIMSAPIContext.getService(ServiceEnum.BRANCH_MASTER_SERVICE);
+		LFIMSModelServiceFactory<AdvocateMaster> advocateServiceFactory=LFIMSAPIContext.getService(ServiceEnum.ADVOCATE_MASTER_SERVICE);
+		LFIMSModelServiceFactory<CourtMaster> courtServiceFactory=LFIMSAPIContext.getService(ServiceEnum.COURT_MASTER_SERVICE);
+		LFIMSModelServiceFactory<OurAdvocateMaster> ourAdvocateServiceFactory=LFIMSAPIContext.getService(ServiceEnum.OUR_ADVOCATE_MASTER_SERVICE);
+		LFIMSModelServiceFactory<ExpensesMaster> expensesServiceFactory=LFIMSAPIContext.getService(ServiceEnum.EXPENSES_MASTER_SERVICE);
+		LFIMSModelServiceFactory<NdpMaster> ndpServiceFactory=LFIMSAPIContext.getService(ServiceEnum.NDP_MASTER_SERVICE);
+		LFIMSModelServiceFactory<CaseMgmtMaintenance> caseMgmtMaintenanceServiceFactory=LFIMSAPIContext.getService(ServiceEnum.CASE_MGMT_MAINTENANCE);
+		bankMasterService=bankServiceFactory.lookupTxnService();
+		branchMasterService= branchServiceFactory.lookupTxnService();
+		advocateMasterService=advocateServiceFactory.lookupTxnService();
+		courtMasterService=courtServiceFactory.lookupTxnService();
+		ourAdvocateMasterService=ourAdvocateServiceFactory.lookupTxnService();
+		expensesMasterService=expensesServiceFactory.lookupTxnService();
+		ndpMasterService=ndpServiceFactory.lookupTxnService();
+		caseMgmtMaintenanceService=caseMgmtMaintenanceServiceFactory.lookupTxnService();
 	} 
 
 	@GET  
@@ -553,7 +545,7 @@ public class LFIMSMaintenanceResource {
 		id.add(branchMasterRecord.getBankName());
 		searchCriteria.put(BankMasterAttributeMapper.ID, id);
 		
-		Map<String,LFIMSObject<BankMaster>> bankMasterNode= bankMasterService.fetchNodeReferences(searchCriteria, true);
+		Map<String,LFIMSObject<BankMaster>> bankMasterNode= ((LFIMSModelJCRService<BankMaster>) bankMasterService).fetchNodeReferences(searchCriteria, true);
 		Iterator<String> keyIterator=bankMasterNode.keySet().iterator();
 		while(keyIterator.hasNext()){
 			String key=keyIterator.next();

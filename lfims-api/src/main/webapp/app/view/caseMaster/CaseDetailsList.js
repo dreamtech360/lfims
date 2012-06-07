@@ -35,7 +35,40 @@ Ext.define('lfims.view.caseMaster.CaseDetailsList' ,{
     minChars : 1,
     triggerAction: 'all',
     selectOnTab: true,
-    store: 'bankMaster',
+    store: Ext.create('Ext.data.Store',  { 
+        autoLoad: true,
+        fields: [ 'name',
+                  'value'],
+        proxy: {
+    		type: 'rest',
+    		url: 'http://localhost:8080/lfims/webresources/picklist/cases/respondentNameList',
+    		noCache: false,
+    		reader: {
+    			type: 'json',
+    			root: 'respondentNameList',
+    			totalProperty: 'results',
+    			successProperty: 'success'
+    		},
+    		writer:{
+    			type: 'json',
+    			writeAllFields:true
+
+    		},
+    		listeners: {
+    			exception: function(store, response, op) {
+    				Ext.example.msg('Exception','Exception has occured operation could not be filfilled');
+    			}
+    		}
+
+    	}/*,
+        listeners: {
+            load: function(store, options) {
+                  var combo = Ext.getCmp('USERTYPECmbo');
+                  combo.setValue(combo.getValue()); //Set the remote combo after the store loads.
+        }
+    }          */                 
+}),
+
     displayField:'name',
     valueField:'id',
     listeners:{
@@ -58,7 +91,39 @@ Ext.define('lfims.view.caseMaster.CaseDetailsList' ,{
     fieldLabel:'Case No',
     triggerAction: 'all',
     selectOnTab: true,
-    store: 'bankMaster',
+    store: Ext.create('Ext.data.Store',  { 
+        autoLoad: true,
+        fields: [ 'name',
+                  'value'],
+        proxy: {
+    		type: 'rest',
+    		url: 'http://localhost:8080/lfims/webresources/picklist/cases/caseNoList',
+    		noCache: false,
+    		reader: {
+    			type: 'json',
+    			root: 'caseNoList',
+    			totalProperty: 'results',
+    			successProperty: 'success'
+    		},
+    		writer:{
+    			type: 'json',
+    			writeAllFields:true
+
+    		},
+    		listeners: {
+    			exception: function(store, response, op) {
+    				Ext.example.msg('Exception','Exception has occured operation could not be filfilled');
+    			}
+    		}
+
+    	}/*,
+        listeners: {
+            load: function(store, options) {
+                  var combo = Ext.getCmp('USERTYPECmbo');
+                  combo.setValue(combo.getValue()); //Set the remote combo after the store loads.
+        }
+    }          */                 
+}),
     displayField:'name',
     valueField:'id',
     listeners:{
@@ -81,7 +146,39 @@ Ext.define('lfims.view.caseMaster.CaseDetailsList' ,{
     minChars : 1,
     triggerAction: 'all',
     selectOnTab: true,
-    store: 'bankMaster',
+    store: Ext.create('Ext.data.Store',  { 
+        autoLoad: true,
+        fields: [ 'name',
+                  'value'],
+        proxy: {
+    		type: 'rest',
+    		url: 'http://localhost:8080/lfims/webresources/picklist/cases/rpmNoList',
+    		noCache: false,
+    		reader: {
+    			type: 'json',
+    			root: 'rpmNoList',
+    			totalProperty: 'results',
+    			successProperty: 'success'
+    		},
+    		writer:{
+    			type: 'json',
+    			writeAllFields:true
+
+    		},
+    		listeners: {
+    			exception: function(store, response, op) {
+    				Ext.example.msg('Exception','Exception has occured operation could not be filfilled');
+    			}
+    		}
+
+    	}/*,
+        listeners: {
+            load: function(store, options) {
+                  var combo = Ext.getCmp('USERTYPECmbo');
+                  combo.setValue(combo.getValue()); //Set the remote combo after the store loads.
+        }
+    }          */                 
+}),
     displayField:'name',
     valueField:'id',
     listeners:{
@@ -92,7 +189,8 @@ Ext.define('lfims.view.caseMaster.CaseDetailsList' ,{
 			  cmb.getStore().clearFilter();
 		  }
 	  }
-}],
+}
+],
 init: function() {
 	console.log('Initialized Case Master List! This happens before the Application launch function is called');
 },

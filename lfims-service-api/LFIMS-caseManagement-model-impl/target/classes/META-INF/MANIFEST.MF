@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925021829
+Bnd-LastModified: 1338986399164
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
-Bundle-Activator: com.dreamtech360.lfims.model.activator.CaseManagementM
- odelImplActivator
 Bundle-Category: productCatalogue
 Bundle-ManifestVersion: 2
 Bundle-Name: LFIMS-caseManagement-model-impl
@@ -15,8 +13,9 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.casemanagement
  ch.impl.casemanagement,com.dreamtech360.lfims.model.service.exception,c
  om.dreamtech360.lfims.model.search.query,com.dreamtech360.lfims.model.a
  pi.casemanagement,com.dreamtech360.lfims.model.search,com.dreamtech360.
- lfims.model.base,com.dreamtech360.lfims.model.service.base,com.dreamtec
- h360.lfims.model.api.impl.casemanagement";version="0.0.1.SNAPSHOT"
+ lfims.model.base,com.dreamtech360.lfims.model.api.impl.casemanagement,c
+ om.dreamtech360.lfims.model.service.base,com.dreamtech360.lfims.service
+ .transactionmanagement,javax.transaction";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.casemanagement;version=
  "[0.0,1)",com.dreamtech360.lfims.model.api.impl.casemanagement;version=
  "[0.0,1)",com.dreamtech360.lfims.model.base;version="[0.0,1)",com.dream
@@ -25,6 +24,7 @@ Import-Package: com.dreamtech360.lfims.model.api.casemanagement;version=
  model.search.query;version="[0.0,1)",com.dreamtech360.lfims.model.servi
  ce.base;version="[0.0,1)",com.dreamtech360.lfims.model.service.exceptio
  n;version="[0.0,1)",com.dreamtech360.lfims.model.service.impl.casemanag
- ement,javax.jcr;version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)"
- ,org.osgi.framework;version="[1.5,2)"
+ ement,com.dreamtech360.lfims.service.transactionmanagement;version="[0.
+ 0,1)",javax.jcr;version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)"
+ ,javax.transaction,org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

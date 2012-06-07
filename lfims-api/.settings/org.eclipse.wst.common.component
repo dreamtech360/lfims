@@ -5,64 +5,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="LFIMS-advocateMaster-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-advocateMaster-model-api/LFIMS-advocateMaster-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-advocateMaster-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-advocateMaster-model-impl/LFIMS-advocateMaster-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ourAdvocateMaster-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ourAdvocateMaster-model-api/LFIMS-ourAdvocateMaster-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ourAdvocateMaster-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ourAdvocateMaster-model-impl/LFIMS-ourAdvocateMaster-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ourAdvocateMaster-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ourAdvocateMaster-service/LFIMS-ourAdvocateMaster-service">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-courtMaster-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-courtMaster-model-api/LFIMS-courtMaster-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-courtMaster-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-courtMaster-model-impl/LFIMS-courtMaster-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-courtMaster-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-courtMaster-service/LFIMS-courtMaster-service">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-expensesMaster-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-expensesMaster-model-api/LFIMS-expensesMaster-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-expensesMaster-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-expensesMaster-model-impl/LFIMS-expensesMaster-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-expensesMaster-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-expensesMaster-service/LFIMS-expensesMaster-service">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ndpMaster-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ndpMaster-model-api/LFIMS-ndpMaster-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ndpMaster-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ndpMaster-model-impl/LFIMS-ndpMaster-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-ndpMaster-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-ndpMaster-service/LFIMS-ndpMaster-service">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseMgmtMaintenance-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseMgmtMaintenance-model-api/LFIMS-caseMgmtMaintenance-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseMgmtMaintenance-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseMgmtMaintenance-model-impl/LFIMS-caseMgmtMaintenance-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseMgmtMaintenance-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseMgmtMaintenance-service/LFIMS-caseMgmtMaintenance-service">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseManagement-model-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseManagement-model-api/LFIMS-caseManagement-model-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseManagement-model-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseManagement-model-impl/LFIMS-caseManagement-model-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="LFIMS-caseManagement-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-caseManagement-service/LFIMS-caseManagement-service">
+        <dependent-module archiveName="LFIMS-cache-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/LFIMS-cache-service/LFIMS-cache-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="lfims-api"/>

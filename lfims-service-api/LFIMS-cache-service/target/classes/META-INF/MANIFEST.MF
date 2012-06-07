@@ -1,5 +1,35 @@
 Manifest-Version: 1.0
-Built-By: SPADHI
+Bnd-LastModified: 1338986401497
 Build-Jdk: 1.6.0_24
-Created-By: Maven Integration for Eclipse
-
+Built-By: SPADHI
+Bundle-Activator: com.dreamtech360.lfims.service.cachemanagement.activat
+ or.LFIMSCacheManagementServiceActivator
+Bundle-Category: productCatalogue
+Bundle-ManifestVersion: 2
+Bundle-Name: LFIMS-cache-service
+Bundle-SymbolicName: LFIMS-cache-service
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: *;scope=runtime
+Export-Package: com.dreamtech360.lfims.service.cachemanagement;uses:="co
+ m.dreamtech360.lfims.annotations,com.dreamtech360.lfims.model.service.b
+ ase,com.dreamtech360.lfims.service.transactionmanagement,javax.transact
+ ion,com.dreamtech360.lfims.model.base,com.dreamtech360.lfims.model.serv
+ ice.exception,org.osgi.framework,com.dreamtech360.lfims.service.base,or
+ g.codehaus.jettison.json,net.sf.ehcache.store,net.sf.ehcache,net.sf.ehc
+ ache.config,net.sf.ehcache.constructs.blocking,javax.transaction.xa,net
+ .sf.ehcache.transaction.manager,net.sf.ehcache.transaction.xa";version=
+ "0.0.1.SNAPSHOT"
+Import-Package: com.dreamtech360.lfims.annotations;version="[0.0,1)",com
+ .dreamtech360.lfims.model.base;version="[0.0,1)",com.dreamtech360.lfims
+ .model.service.base;version="[0.0,1)",com.dreamtech360.lfims.model.serv
+ ice.exception;version="[0.0,1)",com.dreamtech360.lfims.service.base;ver
+ sion="[0.0,1)",com.dreamtech360.lfims.service.cachemanagement,com.dream
+ tech360.lfims.service.transactionmanagement;version="[0.0,1)",javax.tra
+ nsaction,javax.transaction.xa,net.sf.ehcache;version="[2.0,3)",net.sf.e
+ hcache.config;version="[2.0,3)",net.sf.ehcache.constructs.blocking;vers
+ ion="[2.0,3)",net.sf.ehcache.store;version="[2.0,3)",net.sf.ehcache.tra
+ nsaction.manager;version="[2.0,3)",net.sf.ehcache.transaction.xa;versio
+ n="[2.0,3)",org.codehaus.jettison.json;version="[1.1,2)",org.osgi.frame
+ work;version="[1.5,2)"
+Tool: Bnd-1.50.0

@@ -6,56 +6,70 @@ import org.osgi.framework.BundleContext;
 import com.dreamtech360.lfims.model.api.ouradvocatemaster.OurAdvocateMaster;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelService;
 import com.dreamtech360.lfims.model.service.impl.ouradvocatemaster.OurAdvocateMasterMaintenanceService;
-import com.dreamtech360.lfims.service.base.LFIMSServiceFactory;
+import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
-public class OurAdvocateMasterServiceFactory extends LFIMSServiceFactory<OurAdvocateMaster>  {
+public class OurAdvocateMasterServiceFactory extends LFIMSModelServiceFactory<OurAdvocateMaster>  {
 
 	private BundleContext context=null;
-	protected Repository repository=null;
-	public static final String RMI="RMI";
-	public static final String STANDALONE="STANDALONE";
+	private Repository repository=null;
+	private volatile LFIMSModelService<OurAdvocateMaster> service=null;
+	private LFIMSTransactionManagementService txnService=null;
+	
 
-	public OurAdvocateMasterServiceFactory(){}
-	/*public OurAdvocateMasterServiceFactory(boolean launchRepository,String type){
-		if(launchRepository){
-			if(RMI.equals(type)){
-				 ClientRepositoryFactory factory = new ClientRepositoryFactory();
-				try {
-					repository = factory.getRepository("rmi://localhost:1099/jackrabbit");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			else if(STANDALONE.equals(type))
-			{
-				System.setProperty("disableCheckForReferencesInContentException","true");
-				System.setProperty("org.apache.jackrabbit.repository.conf","D:\\jackrabbit\\repository.xml");
-				System.setProperty("org.apache.jackrabbit.repository.home","D:\\jackrabbit");
-				repository = new  TransientRepository(); 
-			}
-
-		}
-	}*/
-
-	public OurAdvocateMasterServiceFactory(BundleContext context){
+	public OurAdvocateMasterServiceFactory(BundleContext context,Repository repository,LFIMSTransactionManagementService txnService){
+		this.repository=repository;
 		this.context=context;
+		this.txnService=txnService;
 	}
-
-
+	 
+	public OurAdvocateMasterServiceFactory(Repository repository,LFIMSTransactionManagementService txnService){
+		this.repository=repository;
+		this.context=null;
+		this.txnService=txnService;
+	}
+	
+	
 	@Override
 	//More logic could be added here to instanciate te proper model implementation 
 	//for example if a model is based on database or a model in based on jackrabbit
-	public LFIMSModelService<OurAdvocateMaster> lookupService() {
-		// TODO Auto-generated method stub
-		service=(LFIMSModelService<OurAdvocateMaster>)context.getService(context.getServiceReference(OurAdvocateMasterMaintenanceService.class.getName()));
-		return service;
+	public LFIMSModelService<OurAdvocateMaster> lookupModelService() {
+		
+		/*service=(LFIMSModelService<OurAdvocateMaster>)context.getService(context.getServiceReference(OurAdvocateMasterMaintenanceService.class.getName()));
+		return service;*/
+		return createModelService();
 	}
 
 	@Override
-	public LFIMSModelService<OurAdvocateMaster> createService() {
-		// TODO Auto-generated method stub
-		return new OurAdvocateMasterMaintenanceService(repository);
+	public LFIMSModelService<OurAdvocateMaster> createModelService() {
+		if(service==null){
+			synchronized(this){
+			service= new OurAdvocateMasterMaintenanceService(repository);
+			}
+		}
+	
+		return service;
 	}
+
+
+	@Override
+	public LFIMSModelService<OurAdvocateMaster> createTxnModelService() {
+		if(service==null){
+			synchronized(this){
+			service= new OurAdvocateMasterMaintenanceService(repository,txnService);
+			}
+		}
+	
+		return service;
+	}
+
+
+	@Override
+	public LFIMSModelService<OurAdvocateMaster> lookupTxnModelService() {
+		
+		return createTxnModelService();
+	}
+
 
 
 

@@ -15,7 +15,6 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector; 
 
-import com.dreamtech360.lfims.model.api.casemanagement.DefendentDetails;
 import com.dreamtech360.lfims.model.api.casemanagement.ImportantDocuments;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.ImportantDocumentsImpl;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.MutableImportantDocumentsImpl;
@@ -32,6 +31,7 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class CaseImportantDocumentsService extends LFIMSModelJCRService<ImportantDocuments>
 {
@@ -40,6 +40,10 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 		this.repository=repository;
 	}
 
+	public CaseImportantDocumentsService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
+	}
 	@Override
 	protected void update(Node node, LFIMSObject<ImportantDocuments> record) throws LFIMSServiceException {
 
@@ -107,11 +111,11 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 							node.getProperty("lfims:documentName").getString(),
 							Boolean.parseBoolean(node.getProperty("lfims:originalYN").getString()),
 							node.getProperty("lfims:receivedFrom").getString(),
-							new Date(node.getProperty("lfims:receivedDate").getString()),
+							new Date(node.getProperty("lfims:receivedDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:receivedBy").getString(),
 							node.getProperty("lfims:keptIn").getString(),
 							node.getProperty("lfims:otherDetailsReceipt").getString(),
-							new Date(node.getProperty("lfims:returnDate").getString()),
+							new Date(node.getProperty("lfims:returnDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:returnTo").getString(),
 							node.getProperty("lfims:returnBy").getString(),
 							node.getProperty("lfims:otherDetailsReturn").getString());
@@ -122,11 +126,11 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 							node.getProperty("lfims:documentName").getString(),
 							Boolean.parseBoolean(node.getProperty("lfims:originalYN").getString()),
 							node.getProperty("lfims:receivedFrom").getString(),
-							new Date(node.getProperty("lfims:receivedDate").getString()),
+							new Date(node.getProperty("lfims:receivedDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:receivedBy").getString(),
 							node.getProperty("lfims:keptIn").getString(),
 							node.getProperty("lfims:otherDetailsReceipt").getString(),
-							new Date(node.getProperty("lfims:returnDate").getString()),
+							new Date(node.getProperty("lfims:returnDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:returnTo").getString(),
 							node.getProperty("lfims:returnBy").getString(),
 							node.getProperty("lfims:otherDetailsReturn").getString());
@@ -393,7 +397,7 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 
 											@Override
 											public boolean isNodeTypeCollection() {
-												// TODO Auto-generated method stub
+											
 												return true;
 											}
 
@@ -402,7 +406,7 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 
 									@Override
 									public boolean isNodeTypeCollection() {
-										// TODO Auto-generated method stub
+									
 										return false;
 									}
 									public String getCompositKeyIdentifier() {
@@ -414,7 +418,7 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 
 							@Override
 							public boolean isNodeTypeCollection() {
-								// TODO Auto-generated method stub
+							
 								return true;
 							}
 
@@ -423,7 +427,7 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 
 					@Override
 					public boolean isNodeTypeCollection() {
-						// TODO Auto-generated method stub
+					
 						return true;
 					}
 
@@ -432,7 +436,7 @@ public class CaseImportantDocumentsService extends LFIMSModelJCRService<Importan
 
 			@Override
 			public boolean isNodeTypeCollection() {
-				// TODO Auto-generated method stub
+			
 				return false;
 			}
 			public String getCompositKeyIdentifier() {

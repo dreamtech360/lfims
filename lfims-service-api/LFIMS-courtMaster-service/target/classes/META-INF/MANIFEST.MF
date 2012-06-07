@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337924997385
+Bnd-LastModified: 1338986386005
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.CourtMasterSe
@@ -12,13 +12,14 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: com.dreamtech360.lfims.service.impl.courtmaster;uses:="j
  avax.jcr,com.dreamtech360.lfims.model.service.impl.courtmaster,com.drea
- mtech360.lfims.model.service.base,org.osgi.framework,com.dreamtech360.l
- fims.service.base,com.dreamtech360.lfims.model.api.courtmaster";version
- ="0.0.1.SNAPSHOT"
+ mtech360.lfims.model.service.base,com.dreamtech360.lfims.service.transa
+ ctionmanagement,org.osgi.framework,com.dreamtech360.lfims.service.base,
+ com.dreamtech360.lfims.model.api.courtmaster";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.courtmaster;version="[0
  .0,1)",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",com.
  dreamtech360.lfims.model.service.impl.courtmaster;version="[0.0,1)",com
  .dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lfi
- ms.service.impl.courtmaster,javax.jcr;version="[2.0,3)",org.osgi.framew
+ ms.service.impl.courtmaster,com.dreamtech360.lfims.service.transactionm
+ anagement;version="[0.0,1)",javax.jcr;version="[2.0,3)",org.osgi.framew
  ork;version="[1.5,2)"
 Tool: Bnd-1.50.0

@@ -30,6 +30,7 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class CaseMgmtMaintenanceService extends LFIMSModelJCRService<CaseMgmtMaintenance>
 {
@@ -38,6 +39,10 @@ public class CaseMgmtMaintenanceService extends LFIMSModelJCRService<CaseMgmtMai
 		this.repository=repository;
 	}
 
+	public CaseMgmtMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
+	}
 	@Override
 	protected void update(Node node, LFIMSObject<CaseMgmtMaintenance> record) throws LFIMSServiceException {
 

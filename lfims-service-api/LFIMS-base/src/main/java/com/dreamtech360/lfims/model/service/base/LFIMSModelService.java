@@ -8,12 +8,12 @@ import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.search.LFIMSAttributeMapper;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
 
-public interface LFIMSModelService<T> {
+public interface LFIMSModelService<T> extends LFIMSGenericService<T> {
 
 	
 	LFIMSObject<T> createRecord(int id);
 	LFIMSObject<T> createRecord()throws LFIMSServiceException;
-	void storeRecord(LFIMSObject<T> record) throws LFIMSServiceException;
+	Map<String,LFIMSObject<T>> storeRecord(LFIMSObject<T> record) throws LFIMSServiceException;
 	void storeAllRecord(List<LFIMSObject<T>> records)throws LFIMSServiceException;
 	LFIMSObject<T> loadRecord(int id)throws LFIMSServiceException;
 	List<LFIMSObject<T>> loadAllRecord() throws LFIMSServiceException;

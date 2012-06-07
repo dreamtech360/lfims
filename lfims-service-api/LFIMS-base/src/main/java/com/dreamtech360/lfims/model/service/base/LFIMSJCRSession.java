@@ -4,6 +4,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.qom.QueryObjectModelFactory;
+import javax.transaction.xa.XAResource;
 
 public class LFIMSJCRSession {
 	
@@ -14,12 +15,14 @@ public class LFIMSJCRSession {
 	
 	public LFIMSJCRSession(Session session) throws RepositoryException{
 		this.session=session;
+		
 		this.queryManager=this.session.getWorkspace().getQueryManager();
 		this.queryOMF=this.queryManager.getQOMFactory();
 		
 	}
 	
 	public Session getSession(){
+		
 		return this.session;
 	}
 	

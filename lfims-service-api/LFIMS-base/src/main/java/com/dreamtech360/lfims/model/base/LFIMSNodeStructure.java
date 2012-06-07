@@ -4,7 +4,7 @@ import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
 import com.dreamtech360.lfims.util.LFIMSUtils;
 
 public abstract class LFIMSNodeStructure<T> {
-	
+	 
 	public abstract LFIMSNode<T> getNodeType();
 	public abstract LFIMSNodeStructure<T> getTopNodeStructure();
 	//If the Node is part of a Composite structure and is not a collection then this method returns the key to store the reference value

@@ -15,7 +15,6 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector; 
 import com.dreamtech360.lfims.model.api.casemanagement.CaseDiary;
-import com.dreamtech360.lfims.model.api.casemanagement.DefendentDetails;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.CaseDiaryImpl;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.MutableCaseDiaryImpl;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
@@ -31,12 +30,18 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 {
 	private static LFIMSNodeStructure<CaseDiary> nodeStructure=null;
 	public CaseDiaryService(Repository repository){
 		this.repository=repository;
+	}
+	
+	public CaseDiaryService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
 	}
 
 	@Override
@@ -102,7 +107,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 				if(readOnly==true){
 					caseDiaryRecord=new CaseDiaryImpl(
 							Integer.parseInt(node.getProperty("lfims:id").getString()),
-							new Date(node.getProperty("lfims:hearingDate").getString()),
+							new Date(node.getProperty("lfims:hearingDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:beforeBenchName").getString(),
 							node.getProperty("lfims:ourAdvocateName").getString(),
 							node.getProperty("lfims:advocateName").getString(),
@@ -113,13 +118,13 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 							node.getProperty("lfims:caseCompletionMethod").getString(),
 							node.getProperty("lfims:otherDetails").getString(),
 							Integer.parseInt(node.getProperty("lfims:quicky").getString()),
-							new Date(node.getProperty("lfims:nextHearingDate").getString()),
-							new Date(node.getProperty("lfims:nextDatePurpose").getString()));
+							new Date(node.getProperty("lfims:nextHearingDate").getDate().getTimeInMillis()),
+							new Date(node.getProperty("lfims:nextDatePurpose").getDate().getTimeInMillis()));
 						}
 				else{
 					caseDiaryRecord=new MutableCaseDiaryImpl(
 							Integer.parseInt(node.getProperty("lfims:id").getString()),
-							new Date(node.getProperty("lfims:hearingDate").getString()),
+							new Date(node.getProperty("lfims:hearingDate").getDate().getTimeInMillis()),
 							node.getProperty("lfims:beforeBenchName").getString(),
 							node.getProperty("lfims:ourAdvocateName").getString(),
 							node.getProperty("lfims:advocateName").getString(),
@@ -130,8 +135,8 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 							node.getProperty("lfims:caseCompletionMethod").getString(),
 							node.getProperty("lfims:otherDetails").getString(),
 							Integer.parseInt(node.getProperty("lfims:quicky").getString()),
-							new Date(node.getProperty("lfims:nextHearingDate").getString()),
-							new Date(node.getProperty("lfims:nextDatePurpose").getString()));
+							new Date(node.getProperty("lfims:nextHearingDate").getDate().getTimeInMillis()),
+							new Date(node.getProperty("lfims:nextDatePurpose").getDate().getTimeInMillis()));
 				}
 				
 			} catch (Exception e) {
@@ -390,7 +395,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 
 											@Override
 											public boolean isNodeTypeCollection() {
-												// TODO Auto-generated method stub
+											
 												return true;
 											}
 
@@ -399,7 +404,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 
 									@Override
 									public boolean isNodeTypeCollection() {
-										// TODO Auto-generated method stub
+									
 										return false;
 									}
 									public String getCompositKeyIdentifier() {
@@ -411,7 +416,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 
 							@Override
 							public boolean isNodeTypeCollection() {
-								// TODO Auto-generated method stub
+							
 								return true;
 							}
 
@@ -420,7 +425,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 
 					@Override
 					public boolean isNodeTypeCollection() {
-						// TODO Auto-generated method stub
+					
 						return true;
 					}
 
@@ -429,8 +434,7 @@ public class CaseDiaryService extends LFIMSModelJCRService<CaseDiary>
 
 			@Override
 			public boolean isNodeTypeCollection() {
-				// TODO Auto-generated method stub
-				return false;
+					return false;
 			}
 			public String getCompositKeyIdentifier() {
 				return "lfims:uuid";

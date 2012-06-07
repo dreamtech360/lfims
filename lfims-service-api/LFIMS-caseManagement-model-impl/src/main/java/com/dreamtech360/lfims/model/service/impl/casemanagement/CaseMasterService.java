@@ -1,7 +1,7 @@
 package com.dreamtech360.lfims.model.service.impl.casemanagement;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -16,12 +16,7 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector; 
 
-import org.apache.jackrabbit.value.DateValue;
-
-import ucar.unidata.util.DateUtil;
-
 import com.dreamtech360.lfims.model.api.casemanagement.CaseMaster;
-import com.dreamtech360.lfims.model.api.casemanagement.DefendentDetails;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.CaseMasterImpl;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.MutableCaseMasterImpl;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
@@ -38,6 +33,7 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
  
 public class CaseMasterService extends LFIMSModelJCRService<CaseMaster>
 {
@@ -45,7 +41,10 @@ public class CaseMasterService extends LFIMSModelJCRService<CaseMaster>
 	public CaseMasterService(Repository repository){
 		this.repository=repository;
 	}
-
+	public CaseMasterService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
+	}
 	@Override
 	protected void update(Node node, LFIMSObject<CaseMaster> record) throws LFIMSServiceException {
 

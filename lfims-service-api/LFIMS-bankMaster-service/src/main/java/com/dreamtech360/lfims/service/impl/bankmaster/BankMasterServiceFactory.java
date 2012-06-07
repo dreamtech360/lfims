@@ -1,63 +1,75 @@
 package com.dreamtech360.lfims.service.impl.bankmaster;
 import javax.jcr.Repository;
 
-import org.apache.jackrabbit.core.TransientRepository;
-import org.apache.jackrabbit.rmi.client.ClientRepositoryFactory;
 import org.osgi.framework.BundleContext;
 
 import com.dreamtech360.lfims.model.api.bankmaster.BankMaster;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelService;
 import com.dreamtech360.lfims.model.service.impl.bankmaster.BankMasterMaintenanceService;
-import com.dreamtech360.lfims.service.base.LFIMSServiceFactory;
+import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
-public class BankMasterServiceFactory extends LFIMSServiceFactory<BankMaster>  {
+public class BankMasterServiceFactory extends LFIMSModelServiceFactory<BankMaster>  {
 
 	private BundleContext context=null;
-	protected Repository repository=null;
-	public static final String RMI="RMI";
-	public static final String STANDALONE="STANDALONE";
+	private Repository repository=null;
+	private volatile LFIMSModelService<BankMaster> service=null;
+	private LFIMSTransactionManagementService txnService=null;
+	
 
-	public BankMasterServiceFactory(){}
-	/*public BankMasterServiceFactory(boolean launchRepository,String type){
-		if(launchRepository){
-			if(RMI.equals(type)){
-				 ClientRepositoryFactory factory = new ClientRepositoryFactory();
-				try {
-					repository = factory.getRepository("rmi://localhost:1099/jackrabbit");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			else if(STANDALONE.equals(type))
-			{
-				System.setProperty("disableCheckForReferencesInContentException","true");
-				System.setProperty("org.apache.jackrabbit.repository.conf","D:\\jackrabbit\\repository.xml");
-				System.setProperty("org.apache.jackrabbit.repository.home","D:\\jackrabbit");
-				repository = new  TransientRepository(); 
-			}
-
-		}
-	}*/
-
-	public BankMasterServiceFactory(BundleContext context){
+	public BankMasterServiceFactory(BundleContext context,Repository repository,LFIMSTransactionManagementService txnService){
+		this.repository=repository;
 		this.context=context;
+		this.txnService=txnService;
 	}
-
-
+	 
+	public BankMasterServiceFactory(Repository repository,LFIMSTransactionManagementService txnService){
+		this.repository=repository;
+		this.context=null;
+		this.txnService=txnService;
+	}
+	
+	
 	@Override
 	//More logic could be added here to instanciate te proper model implementation 
 	//for example if a model is based on database or a model in based on jackrabbit
-	public LFIMSModelService<BankMaster> lookupService() {
-		// TODO Auto-generated method stub
-		service=(LFIMSModelService<BankMaster>)context.getService(context.getServiceReference(BankMasterMaintenanceService.class.getName()));
-		return service;
+	public LFIMSModelService<BankMaster> lookupModelService() {
+		
+		/*service=(LFIMSModelService<BankMaster>)context.getService(context.getServiceReference(BankMasterMaintenanceService.class.getName()));
+		return service;*/
+		return createModelService();
 	}
 
 	@Override
-	public LFIMSModelService<BankMaster> createService() {
-		// TODO Auto-generated method stub
-		return new BankMasterMaintenanceService(repository);
+	public LFIMSModelService<BankMaster> createModelService() {
+		if(service==null){
+			synchronized(this){
+			service= new BankMasterMaintenanceService(repository);
+			}
+		}
+	
+		return service;
 	}
+
+
+	@Override
+	public LFIMSModelService<BankMaster> createTxnModelService() {
+		if(service==null){
+			synchronized(this){
+			service= new BankMasterMaintenanceService(repository,txnService);
+			}
+		}
+	
+		return service;
+	}
+
+
+	@Override
+	public LFIMSModelService<BankMaster> lookupTxnModelService() {
+		
+		return createTxnModelService();
+	}
+
 
 
 

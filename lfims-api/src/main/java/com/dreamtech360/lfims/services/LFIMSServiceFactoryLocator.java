@@ -2,18 +2,18 @@ package com.dreamtech360.lfims.services;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.dreamtech360.lfims.service.base.LFIMSServiceFactory;
+import com.dreamtech360.lfims.service.base.LFIMSGenericServiceFactory;
 
-public  class LFIMSServiceFactoryLocator {
+public  class LFIMSServiceFactoryLocator<T> {
 	
-	private static Map<ServiceEnum,LFIMSServiceFactory> servicesRef=new  HashMap<ServiceEnum,LFIMSServiceFactory>();
+	private  Map<ServiceEnum,LFIMSGenericServiceFactory<T>> servicesRef=new  HashMap<ServiceEnum,LFIMSGenericServiceFactory<T>>();
 	
-	public static LFIMSServiceFactory getServiceFactory(ServiceEnum key){
+	public   LFIMSGenericServiceFactory<T> getServiceFactory(ServiceEnum key){
 		
 		return servicesRef.get(key);
 	}
 	
-	public static void registerServiceFactory(ServiceEnum key,LFIMSServiceFactory serviceFactory){
+	public  void registerServiceFactory(ServiceEnum key,LFIMSGenericServiceFactory<T> serviceFactory){
 		servicesRef.put(key, serviceFactory);
 	}
 	

@@ -5,17 +5,19 @@ import java.util.Date;
 
 import org.codehaus.jettison.json.JSONObject;
 
+import com.dreamtech360.lfims.annotations.LFIMSCacheEntry;
 import com.dreamtech360.lfims.model.api.casemanagement.MutableCaseMaster;
 import com.dreamtech360.lfims.model.api.casemanagement.CaseMaster;
 import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 
 public class MutableCaseMasterImpl implements MutableCaseMaster{
-
-
 	private int id;
 	private String uuid;
+	@LFIMSCacheEntry(cacheName="respondentName",valueField="id")
 	private String respondentName;
+	@LFIMSCacheEntry(cacheName="caseNo",valueField="id")
 	private String caseNo;
+	@LFIMSCacheEntry(cacheName="rpmaNo",valueField="id")
 	private String rpmaNo;
 	private String bankName;
 	private String branchName;
@@ -299,8 +301,6 @@ public class MutableCaseMasterImpl implements MutableCaseMaster{
 			object.put("otherAdvocatePhone",this.otherAdvocatePhone);		
 			object.put("specialOfficerAppointed",this.specialOfficerAppointed);	
 			object.put("caseTransferDate",formatter.format(this.caseTransferDate));		
-
-
 
 		} catch (Exception e) {
 			throw new LFIMSModelException(e);

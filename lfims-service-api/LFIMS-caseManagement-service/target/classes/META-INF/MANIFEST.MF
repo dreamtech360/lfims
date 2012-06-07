@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925025425
+Bnd-LastModified: 1338986400432
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.CaseManagemen
@@ -12,13 +12,15 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: com.dreamtech360.lfims.service.impl.casemanagement;uses:
  ="javax.jcr,com.dreamtech360.lfims.model.service.base,com.dreamtech360.
- lfims.model.api.casemanagement,org.osgi.framework,com.dreamtech360.lfim
- s.model.service.impl.casemanagement,com.dreamtech360.lfims.service.base
- ";version="0.0.1.SNAPSHOT"
+ lfims.service.transactionmanagement,com.dreamtech360.lfims.model.api.ca
+ semanagement,org.osgi.framework,com.dreamtech360.lfims.model.service.im
+ pl.casemanagement,com.dreamtech360.lfims.service.base";version="0.0.1.S
+ NAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.casemanagement;version=
  "[0.0,1)",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",c
  om.dreamtech360.lfims.model.service.impl.casemanagement;version="[0.0,1
  )",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech3
- 60.lfims.service.impl.casemanagement,javax.jcr;version="[2.0,3)",org.os
+ 60.lfims.service.impl.casemanagement,com.dreamtech360.lfims.service.tra
+ nsactionmanagement;version="[0.0,1)",javax.jcr;version="[2.0,3)",org.os
  gi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

@@ -18,7 +18,7 @@
 					<instructions>
 						<Bundle-Category>productCatalogue</Bundle-Category>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Bundle-Activator>com.dreamtech360.lfims.model.activator.BankMasterModelImplActivator</Bundle-Activator>
+					<!-- 	<Bundle-Activator>com.dreamtech360.lfims.model.activator.BankMasterModelImplActivator</Bundle-Activator>  -->
 						<Export-Package>com.dreamtech360.lfims.model.service.impl.bankmaster</Export-Package>		
    				</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
@@ -64,5 +64,16 @@
     	<groupId>com.dreamtech360.lfims</groupId>
     	<artifactId>LFIMS-base</artifactId>
     	  </dependency>
+    	  
+    	    <dependency>
+    	<groupId>com.dreamtech360.lfims</groupId>
+    	   <artifactId>LFIMS-TransactionManager-Service</artifactId>
+    	  </dependency>
+    	  
+    	  <dependency>
+		 <groupId>javax.transaction</groupId>
+	 <artifactId>jta</artifactId>
+ </dependency>
+ 
   </dependencies>
 </project>

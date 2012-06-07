@@ -7,4 +7,73 @@
     <relativePath>..</relativePath>
   </parent>
   <artifactId>LFIMS-cache-service</artifactId>
+ <packaging>bundle</packaging> 
+  
+ 
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-Category>productCatalogue</Bundle-Category>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Export-Package>com.dreamtech360.lfims.service.cachemanagement</Export-Package>
+							<Bundle-Activator>com.dreamtech360.lfims.service.cachemanagement.activator.LFIMSCacheManagementServiceActivator</Bundle-Activator>		
+						<Embed-Dependency>*;scope=runtime</Embed-Dependency>		
+					</instructions>
+					<remoteOBR>repo-rel</remoteOBR>
+					<prefixUrl>
+						file:///D:/Felix-4.2.0/Release
+					</prefixUrl>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			
+		</dependency>
+		
+		<dependency>
+            <groupId>com.springsource.net.sf.ehcache</groupId>
+            <artifactId>EHCache</artifactId>
+          
+         </dependency>
+      
+      
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-base</artifactId>
+			
+		</dependency>
+		
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+		
+		  <dependency>
+    	<groupId>com.dreamtech360.lfims</groupId>
+    	   <artifactId>LFIMS-TransactionManager-Service</artifactId>
+    	  </dependency>
+    	  
+    	  
+		<dependency>
+		 <groupId>javax.transaction</groupId>
+	 <artifactId>jta</artifactId>
+ </dependency>
+	</dependencies>
 </project>

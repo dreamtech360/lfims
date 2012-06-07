@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925006726
+Bnd-LastModified: 1338986391603
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
-Bundle-Activator: com.dreamtech360.lfims.model.activator.NdpMasterModelI
- mplActivator
 Bundle-Category: productCatalogue
 Bundle-ManifestVersion: 2
 Bundle-Name: LFIMS-ndpMaster-model-impl
@@ -16,7 +14,8 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.ndpmaster;uses
  ch360.lfims.model.search.query,com.dreamtech360.lfims.model.api.ndpmast
  er,com.dreamtech360.lfims.model.search,com.dreamtech360.lfims.model.bas
  e,com.dreamtech360.lfims.model.api.impl.ndpmaster,com.dreamtech360.lfim
- s.model.service.base";version="0.0.1.SNAPSHOT"
+ s.model.service.base,com.dreamtech360.lfims.service.transactionmanageme
+ nt,javax.transaction";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.impl.ndpmaster;version=
  "[0.0,1)",com.dreamtech360.lfims.model.api.ndpmaster;version="[0.0,1)",
  com.dreamtech360.lfims.model.base;version="[0.0,1)",com.dreamtech360.lf
@@ -24,7 +23,8 @@ Import-Package: com.dreamtech360.lfims.model.api.impl.ndpmaster;version=
  impl.ndpmaster;version="[0.0,1)",com.dreamtech360.lfims.model.search.qu
  ery;version="[0.0,1)",com.dreamtech360.lfims.model.service.base;version
  ="[0.0,1)",com.dreamtech360.lfims.model.service.exception;version="[0.0
- ,1)",com.dreamtech360.lfims.model.service.impl.ndpmaster,javax.jcr;vers
- ion="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)",org.osgi.framework;
- version="[1.5,2)"
+ ,1)",com.dreamtech360.lfims.model.service.impl.ndpmaster,com.dreamtech3
+ 60.lfims.service.transactionmanagement;version="[0.0,1)",javax.jcr;vers
+ ion="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)",javax.transaction,o
+ rg.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

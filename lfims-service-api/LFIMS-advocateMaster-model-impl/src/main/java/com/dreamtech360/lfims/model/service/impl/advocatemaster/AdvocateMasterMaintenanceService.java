@@ -30,12 +30,18 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class AdvocateMasterMaintenanceService extends LFIMSModelJCRService<AdvocateMaster>
 {
 	private static LFIMSNodeStructure<AdvocateMaster> nodeStructure=null;
 	public AdvocateMasterMaintenanceService(Repository repository){
 		this.repository=repository;
+	}
+	
+	public AdvocateMasterMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
 	}
 
 	@Override
@@ -240,7 +246,7 @@ public class AdvocateMasterMaintenanceService extends LFIMSModelJCRService<Advoc
 		nodeStructure=new LFIMSNodeStructure<AdvocateMaster>(){
 
 			public LFIMSNode<AdvocateMaster> getNodeType() {
-				// TODO Auto-generated method stub
+			
 				return new LFIMSNode<AdvocateMaster>(){
 					public String getNodeName() {
 						return "AdvocateDetails";
@@ -260,16 +266,16 @@ public class AdvocateMasterMaintenanceService extends LFIMSModelJCRService<Advoc
 								return AdvocateMasterAttributeMapper.ID;
 							}
 						};
-					}
+					} 
 				};
 			}
 
 			public LFIMSNodeStructure<AdvocateMaster> getTopNodeStructure() {
-				// TODO Auto-generated method stub
+				
 				return new LFIMSNodeStructure<AdvocateMaster>(){
 
 					public LFIMSNode<AdvocateMaster> getNodeType() {
-						// TODO Auto-generated method stub
+						
 						return new LFIMSNode<AdvocateMaster>(){
 							public String getNodeName() {
 								return "AdvocateDetailsList";
@@ -294,13 +300,13 @@ public class AdvocateMasterMaintenanceService extends LFIMSModelJCRService<Advoc
 					}
 
 					public LFIMSNodeStructure<AdvocateMaster> getTopNodeStructure() {
-						// TODO Auto-generated method stub
+						
 						return null;
 					}
 
 					@Override
 					public boolean isNodeTypeCollection() {
-						// TODO Auto-generated method stub
+						
 						return true;
 					}
 
@@ -309,7 +315,7 @@ public class AdvocateMasterMaintenanceService extends LFIMSModelJCRService<Advoc
 
 			@Override
 			public boolean isNodeTypeCollection() {
-				// TODO Auto-generated method stub
+				
 				return false;
 			}
 

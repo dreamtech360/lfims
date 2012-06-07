@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925008457
+Bnd-LastModified: 1338986392952
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.NdpMasterServ
@@ -12,13 +12,14 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: com.dreamtech360.lfims.service.impl.ndpmaster;uses:="jav
  ax.jcr,com.dreamtech360.lfims.model.service.base,com.dreamtech360.lfims
- .model.api.ndpmaster,org.osgi.framework,com.dreamtech360.lfims.model.se
- rvice.impl.ndpmaster,com.dreamtech360.lfims.service.base";version="0.0.
- 1.SNAPSHOT"
+ .service.transactionmanagement,com.dreamtech360.lfims.model.api.ndpmast
+ er,org.osgi.framework,com.dreamtech360.lfims.model.service.impl.ndpmast
+ er,com.dreamtech360.lfims.service.base";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.ndpmaster;version="[0.0
  ,1)",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",com.dr
  eamtech360.lfims.model.service.impl.ndpmaster;version="[0.0,1)",com.dre
  amtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lfims.s
- ervice.impl.ndpmaster,javax.jcr;version="[2.0,3)",org.osgi.framework;ve
+ ervice.impl.ndpmaster,com.dreamtech360.lfims.service.transactionmanagem
+ ent;version="[0.0,1)",javax.jcr;version="[2.0,3)",org.osgi.framework;ve
  rsion="[1.5,2)"
 Tool: Bnd-1.50.0

@@ -1,10 +1,9 @@
 package com.dreamtech360.lfims.util;
 
 import java.lang.reflect.ParameterizedType;
-
 import com.dreamtech360.lfims.model.base.LFIMSCompositObject;
 
-public class LFIMSUtils {
+public class LFIMSUtils { 
 
 	public static boolean isCompositNode(Class<?> nodeClass){
 		boolean isCompositNode=false;
@@ -15,7 +14,16 @@ public class LFIMSUtils {
 				isCompositNode=true; 
 				break;
 			}
-		}
+		} 
 		return isCompositNode;
 	}
+	
+	public static Class<?> getParameterizedClass(Class<?> nodeClass){
+		
+		Class<?> node= (Class<?>) ((ParameterizedType) nodeClass.getGenericSuperclass()).getActualTypeArguments()[0];
+		Class<?> classes[]=node.getInterfaces();
+		return classes[0];
+	}
+	
+	
 }

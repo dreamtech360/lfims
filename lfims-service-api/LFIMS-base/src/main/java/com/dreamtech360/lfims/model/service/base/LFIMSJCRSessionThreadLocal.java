@@ -4,6 +4,11 @@ public class LFIMSJCRSessionThreadLocal {
 	
 	public static final ThreadLocal<LFIMSJCRSession> jcrSessioLocal=new ThreadLocal<LFIMSJCRSession>();
 	
+	public static boolean exists(){
+		if( jcrSessioLocal.get() !=null)
+			return true;
+		return false;
+	}
 	public static void set(LFIMSJCRSession session){
 		jcrSessioLocal.set(session);
 	}

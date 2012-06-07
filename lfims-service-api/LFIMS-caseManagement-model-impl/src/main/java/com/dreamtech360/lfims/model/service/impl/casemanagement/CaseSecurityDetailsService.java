@@ -14,7 +14,6 @@ import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector; 
 
-import com.dreamtech360.lfims.model.api.casemanagement.DefendentDetails;
 import com.dreamtech360.lfims.model.api.casemanagement.SecurityDetails;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.SecurityDetailsImpl;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.MutableSecurityDetailsImpl;
@@ -31,6 +30,7 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class CaseSecurityDetailsService extends LFIMSModelJCRService<SecurityDetails>
 {
@@ -38,7 +38,10 @@ public class CaseSecurityDetailsService extends LFIMSModelJCRService<SecurityDet
 	public CaseSecurityDetailsService(Repository repository){
 		this.repository=repository;
 	}
-
+	public CaseSecurityDetailsService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
+	}
 	@Override
 	protected void update(Node node, LFIMSObject<SecurityDetails> record) throws LFIMSServiceException {
 

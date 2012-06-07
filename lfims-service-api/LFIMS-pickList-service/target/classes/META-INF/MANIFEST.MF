@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925027024
+Bnd-LastModified: 1338130807098
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Category: productCatalogue

@@ -33,6 +33,7 @@ import com.dreamtech360.lfims.model.search.query.LFIMSStringValue;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.base.LFIMSModelJCRService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 public class BranchMasterMaintenanceService extends LFIMSModelJCRService<BranchMaster>
 {
@@ -44,6 +45,11 @@ public class BranchMasterMaintenanceService extends LFIMSModelJCRService<BranchM
 	
 	public BranchMasterMaintenanceService(Repository repository){
 		this.repository=repository;
+	}
+	
+	public BranchMasterMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
+		this.repository=repository;
+		this.transactionManager=transactionManagerService.getTransactionManager();
 	}
  
 	@Override

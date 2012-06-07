@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1337925016358
+Bnd-LastModified: 1338986397462
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.CaseMgmtMaint
@@ -12,13 +12,15 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: com.dreamtech360.lfims.service.impl.casemgmtmaintenance;
  uses:="javax.jcr,com.dreamtech360.lfims.model.service.base,com.dreamtec
- h360.lfims.model.api.casemgmtmaintenance,com.dreamtech360.lfims.model.s
- ervice.impl.casemgmtmaintenance,org.osgi.framework,com.dreamtech360.lfi
- ms.service.base";version="0.0.1.SNAPSHOT"
+ h360.lfims.service.transactionmanagement,com.dreamtech360.lfims.model.a
+ pi.casemgmtmaintenance,com.dreamtech360.lfims.model.service.impl.casemg
+ mtmaintenance,org.osgi.framework,com.dreamtech360.lfims.service.base";v
+ ersion="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.casemgmtmaintenance;ver
  sion="[0.0,1)",com.dreamtech360.lfims.model.service.base;version="[0.0,
  1)",com.dreamtech360.lfims.model.service.impl.casemgmtmaintenance;versi
  on="[0.0,1)",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.
- dreamtech360.lfims.service.impl.casemgmtmaintenance,javax.jcr;version="
+ dreamtech360.lfims.service.impl.casemgmtmaintenance,com.dreamtech360.lf
+ ims.service.transactionmanagement;version="[0.0,1)",javax.jcr;version="
  [2.0,3)",org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0
