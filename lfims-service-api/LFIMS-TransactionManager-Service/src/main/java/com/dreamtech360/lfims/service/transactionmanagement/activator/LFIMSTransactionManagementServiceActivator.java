@@ -17,6 +17,12 @@ public class LFIMSTransactionManagementServiceActivator implements BundleActivat
 		System.out.println("*******************************"+LFIMSTransactionManagementService.class.toString());
 		serviceRegistration=context.registerService(LFIMSTransactionManagementService.class.getName(), transactionService, null);
 		
+		transactionService.beginTransaction();
+		System.out.println(transactionService.getStatus());
+		transactionService.commitTransaction();
+		System.out.println(transactionService.getStatus());
+	
+		
 		LFIMSTransactionManagementServiceFactory serviceFactory=new LFIMSTransactionManagementServiceFactory(context);
 		factoryRegistration=context.registerService(LFIMSTransactionManagementServiceFactory.class.getName(), serviceFactory, null);
 		

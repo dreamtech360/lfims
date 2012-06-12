@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1338986397462
+Bnd-LastModified: 1339465450832
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.activator.CaseMgmtMaint

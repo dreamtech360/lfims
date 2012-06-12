@@ -137,18 +137,21 @@
 			<artifactId>LFIMS-advocateMaster-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-advocateMaster-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-advocateMaster-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
@@ -156,18 +159,21 @@
 			<artifactId>LFIMS-ourAdvocateMaster-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-ourAdvocateMaster-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-ourAdvocateMaster-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
@@ -175,18 +181,21 @@
 			<artifactId>LFIMS-courtMaster-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-courtMaster-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-courtMaster-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		
@@ -195,18 +204,21 @@
 			<artifactId>LFIMS-expensesMaster-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-expensesMaster-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-expensesMaster-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		
@@ -215,18 +227,21 @@
 			<artifactId>LFIMS-ndpMaster-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-ndpMaster-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-ndpMaster-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		
@@ -235,18 +250,21 @@
 			<artifactId>LFIMS-caseMgmtMaintenance-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-caseMgmtMaintenance-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-caseMgmtMaintenance-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		
@@ -256,18 +274,21 @@
 			<artifactId>LFIMS-caseManagement-model-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-caseManagement-model-impl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.dreamtech360.lfims</groupId>
 			<artifactId>LFIMS-caseManagement-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
@@ -275,6 +296,15 @@
 			<artifactId>LFIMS-cache-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>bundle</type>
+				<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-TransactionManager-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+				<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
@@ -282,6 +312,13 @@
 			<artifactId>jersey-server</artifactId>
 			<version>1.9</version>
 			<type>bundle</type>
+				<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>jta</artifactId>
+			<version>2.0</version>
 		</dependency>
 		
     
@@ -322,11 +359,11 @@
 					</supportedProjectTypes>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<Import-Package>com.sun.jersey.api.core,com.sun.jersey.spi.container.servlet,*</Import-Package>
+						<Import-Package>com.sun.jersey.api.core,com.sun.jersey.spi.container.servlet,org.objectweb.transaction.jta;version="2.1.9",*</Import-Package>
 						<Export-Package>com.dreamtech360.lfims.resources.api.*</Export-Package>
 						<Webapp-Context>lfims</Webapp-Context>
 						<Web-ContextPath>lfims</Web-ContextPath>
-						<Bundle-Activator>com.dreamtech360.lfims.resources.api.activator.LFIMSAPIActivator</Bundle-Activator>
+						<Bundle-Activator>com.dreamtech360.lfims.resources.api.activator.LFIMSAPIContext</Bundle-Activator>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>

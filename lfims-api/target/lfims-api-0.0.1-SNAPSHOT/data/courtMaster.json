@@ -1,0 +1,7 @@
+{
+    success: true,
+    courtMaster: [
+         {id: '1',courtName: 'High Court',courtFullName: 'Kolkata High Court', address1: 'address1',address2:'address2',pin:'7000109', contactPhone: '9831583774'},
+         {id: '2',courtName: 'High Court',courtFullName: 'Kolkata High Court', address1: 'address1',address2:'address2',pin:'7000109', contactPhone: '9831583774'}
+    ]
+}

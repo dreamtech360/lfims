@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.jcr.Node;
 import javax.jcr.PropertyType;
 import javax.jcr.Repository;
+import javax.jcr.Session;
 import javax.jcr.Value;
 import javax.jcr.query.qom.Column;
 import javax.jcr.query.qom.Constraint;
@@ -14,6 +15,7 @@ import javax.jcr.query.qom.Ordering;
 import javax.jcr.query.qom.QueryObjectModelConstants;
 import javax.jcr.query.qom.QueryObjectModelFactory;
 import javax.jcr.query.qom.Selector;
+import javax.transaction.xa.XAResource;
 
 
 import com.dreamtech360.lfims.model.api.bankmaster.BankMaster;
@@ -37,13 +39,14 @@ import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionMana
 public class BankMasterMaintenanceService extends LFIMSModelJCRService<BankMaster>
 {
 	private static LFIMSNodeStructure<BankMaster> nodeStructure=null;
+	private LFIMSTransactionManagementService txnService=null;
 	public BankMasterMaintenanceService(Repository repository){
 		this.repository=repository;
 	} 
 	
 	public BankMasterMaintenanceService(Repository repository,LFIMSTransactionManagementService transactionManagerService){
 		this.repository=repository;
-		this.transactionManager=transactionManagerService.getTransactionManager();
+		this.txnService=transactionManagerService;
 	}
 
 	@Override
@@ -329,8 +332,23 @@ public class BankMasterMaintenanceService extends LFIMSModelJCRService<BankMaste
 		};
 	}
 
+	@Override
+	protected void putSessionInTxn(Session session) throws LFIMSServiceException {
+		if(txnService!=null && txnService.inTransaction()){
+			XAResource xaResource=(XAResource)session;
+			txnService.registerXAResource(xaResource);
+			//If the call is in a transaction then the closure of the session will be done by the synchronizer registered with the transaction below
+			txnService.registerSynchronization();
+		}
 	
 	
-	
+	}
+	@Override
+	protected boolean notInTransaction() throws LFIMSServiceException {
+		// TODO Auto-generated method stub
+		if(txnService.inTransaction())
+			return false;
+		return true;
+	}
 	
 }

@@ -28,6 +28,7 @@
 						com.dreamtech360.lfims.util,
 						com.dreamtech360.lfims.annotations 
 						</Export-Package>
+			
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
@@ -56,10 +57,7 @@
 			<artifactId>jersey-json</artifactId>
 	</dependency>
 	
-<dependency>
-		 <groupId>javax.transaction</groupId>
-	 <artifactId>jta</artifactId>
- </dependency>
+	
  
   </dependencies>
 </project>

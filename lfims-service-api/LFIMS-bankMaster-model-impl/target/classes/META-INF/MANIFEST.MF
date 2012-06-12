@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1338986370546
+Bnd-LastModified: 1339465079918
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Category: productCatalogue
@@ -15,7 +15,7 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.bankmaster;use
  aster,com.dreamtech360.lfims.model.search,com.dreamtech360.lfims.model.
  base,com.dreamtech360.lfims.model.api.impl.bankmaster,com.dreamtech360.
  lfims.model.service.base,com.dreamtech360.lfims.service.transactionmana
- gement,javax.transaction";version="0.0.1.SNAPSHOT"
+ gement,javax.transaction.xa";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.bankmaster;version="[0.
  0,1)",com.dreamtech360.lfims.model.api.impl.bankmaster;version="[0.0,1)
  ",com.dreamtech360.lfims.model.base;version="[0.0,1)",com.dreamtech360.
@@ -26,5 +26,5 @@ Import-Package: com.dreamtech360.lfims.model.api.bankmaster;version="[0.
  0.0,1)",com.dreamtech360.lfims.model.service.impl.bankmaster,com.dreamt
  ech360.lfims.service.transactionmanagement;version="[0.0,1)",javax.jcr;
  version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)",javax.transacti
- on,org.osgi.framework;version="[1.5,2)"
+ on.xa,org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

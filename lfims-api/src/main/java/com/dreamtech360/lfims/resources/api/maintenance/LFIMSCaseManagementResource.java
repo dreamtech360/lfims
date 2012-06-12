@@ -17,24 +17,22 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.dreamtech360.lfims.model.api.casemanagement.CaseDiary;
 import com.dreamtech360.lfims.model.api.casemanagement.CaseMaster;
+import com.dreamtech360.lfims.model.api.casemanagement.DefendentDetails;
+import com.dreamtech360.lfims.model.api.casemanagement.ImportantDocuments;
+import com.dreamtech360.lfims.model.api.casemanagement.SecurityDetails;
 import com.dreamtech360.lfims.model.api.impl.casemanagement.MutableCaseMasterImpl;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.search.LFIMSAttributeMapper;
 import com.dreamtech360.lfims.model.search.impl.casemanagement.CaseMasterSearchParams;
+import com.dreamtech360.lfims.model.service.base.LFIMSModelService;
 import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
-import com.dreamtech360.lfims.model.service.impl.casemanagement.CaseMasterService;
-import com.dreamtech360.lfims.model.service.impl.casemanagement.CaseDefendentDetailsService;
-import com.dreamtech360.lfims.model.service.impl.casemanagement.CaseDiaryService;
-import com.dreamtech360.lfims.model.service.impl.casemanagement.CaseImportantDocumentsService;
-import com.dreamtech360.lfims.model.service.impl.casemanagement.CaseSecurityDetailsService;
-import com.dreamtech360.lfims.service.impl.casemanagement.CaseMasterServiceFactory;
-import com.dreamtech360.lfims.service.impl.casemanagement.CaseDefendentDetailsServiceFactory;
-import com.dreamtech360.lfims.service.impl.casemanagement.CaseDiaryServiceFactory;
-import com.dreamtech360.lfims.service.impl.casemanagement.CaseImportantDocumentsServiceFactory;
-import com.dreamtech360.lfims.service.impl.casemanagement.CaseSecurityDetailsServiceFactory;
-import com.dreamtech360.lfims.services.LFIMSServiceFactoryLocator;
+
+import com.dreamtech360.lfims.resources.api.activator.LFIMSAPIContext;
+import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
+
 import com.dreamtech360.lfims.services.ServiceEnum;
 import com.dreamtech360.lfims.util.LFIMSJSONStringer;
 import com.sun.jersey.spi.resource.Singleton;
@@ -43,29 +41,27 @@ import com.sun.jersey.spi.resource.Singleton;
 @Path("/casemanagement/")
 public class LFIMSCaseManagementResource {
  
-	private CaseMasterService caseMasterService=null;
-	private CaseDefendentDetailsService caseDefendentDetailsService =null;
-	private CaseDiaryService caseDiaryService=null;
-	private CaseImportantDocumentsService caseImportantDocumentsService=null;
-	private CaseSecurityDetailsService caseSecurityDetailsService=null;
+	private  LFIMSModelService<CaseMaster>   caseMasterService=null;
+	private  LFIMSModelService<DefendentDetails>  caseDefendentDetailsService =null;
+	private  LFIMSModelService<CaseDiary>  caseDiaryService=null;
+	private  LFIMSModelService<ImportantDocuments>  caseImportantDocumentsService=null;
+	private  LFIMSModelService<SecurityDetails>  caseSecurityDetailsService=null;
 	
 	public LFIMSCaseManagementResource(){
 		System.out.println("LFIMSCaseManagementResource Constructor called");
-		CaseMasterServiceFactory caseServiceFactory=(CaseMasterServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_MASTER);
-		caseMasterService=(CaseMasterService) caseServiceFactory.lookupService();
+		LFIMSModelServiceFactory<CaseMaster>  caseMasterServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_MASTER);
+		LFIMSModelServiceFactory<DefendentDetails> caseDefendentDetailsServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_DEFENDENT_DETAILS);
+		LFIMSModelServiceFactory<ImportantDocuments> caseImportantDocumentsServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_IMPORTANT_DOCUMENTS);
+		LFIMSModelServiceFactory<SecurityDetails> caseSecurityDetailsServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_SECURITY_DETAILS);
+		LFIMSModelServiceFactory<CaseDiary> caseDiaryServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_DIARY);
 		
-		CaseDefendentDetailsServiceFactory caseDefendentDetailsServiceFactory=(CaseDefendentDetailsServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_DEFENDENT_DETAILS);
-		caseDefendentDetailsService=(CaseDefendentDetailsService) caseDefendentDetailsServiceFactory.lookupService();
-		
-		CaseDiaryServiceFactory caseDiaryServiceFactory=(CaseDiaryServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_DIARY);
-		caseDiaryService=(CaseDiaryService) caseDiaryServiceFactory.lookupService();
-		
-		CaseImportantDocumentsServiceFactory caseImportantDocumentsServiceFactory=(CaseImportantDocumentsServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_IMPORTANT_DOCUMENTS);
-		caseImportantDocumentsService=(CaseImportantDocumentsService) caseImportantDocumentsServiceFactory.lookupService();
-		
-		CaseSecurityDetailsServiceFactory caseSecurityDetailsServiceFactory=(CaseSecurityDetailsServiceFactory) LFIMSServiceFactoryLocator.getServiceFactory(ServiceEnum.CASE_SECURITY_DETAILS);
-		caseSecurityDetailsService=(CaseSecurityDetailsService) caseSecurityDetailsServiceFactory.lookupService();
+		caseMasterService=caseMasterServiceFactory.createTxnService();
+		caseDefendentDetailsService =caseDefendentDetailsServiceFactory.createTxnService();
+		caseDiaryService=caseDiaryServiceFactory.createTxnService();
+		caseImportantDocumentsService=caseImportantDocumentsServiceFactory.createTxnService();
+		caseSecurityDetailsService=caseSecurityDetailsServiceFactory.createTxnService();
 	} 
+	
 
 	
 	

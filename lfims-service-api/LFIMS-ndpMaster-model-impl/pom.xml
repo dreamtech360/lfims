@@ -70,9 +70,6 @@
     	   <artifactId>LFIMS-TransactionManager-Service</artifactId>
     	  </dependency>
     	  
-    	  <dependency>
-		 <groupId>javax.transaction</groupId>
-	 <artifactId>jta</artifactId>
- </dependency>
+    	
 	</dependencies>
 </project>

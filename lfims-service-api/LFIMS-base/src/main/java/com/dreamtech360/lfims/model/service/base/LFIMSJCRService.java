@@ -16,25 +16,18 @@ import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
 import javax.jcr.nodetype.NoSuchNodeTypeException;
 import javax.jcr.version.VersionException;
-import javax.transaction.RollbackException;
-import javax.transaction.Synchronization;
-import javax.transaction.SystemException;
-import javax.transaction.TransactionManager;
-import javax.transaction.UserTransaction;
-import javax.transaction.xa.XAResource;
-
-
 
 import com.dreamtech360.lfims.model.base.LFIMSCompositObject;
 import com.dreamtech360.lfims.model.base.LFIMSNode;
 import com.dreamtech360.lfims.model.base.LFIMSNodeStructure;
+import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+
 
 
 public abstract class LFIMSJCRService<T> {
 
 
 	protected Repository repository=null;
-	protected TransactionManager transactionManager=null;
 	
 	
 	//This is a important method that all subclass should implement as per LFIMS architecture
@@ -42,7 +35,7 @@ public abstract class LFIMSJCRService<T> {
 	//for every node is a node that is of List type
 	protected abstract LFIMSNodeStructure<T> getRootNodeStructureDetails();
 	//public abstract Node getJCRNode(LFIMSNode<T> object) throws LFIMSServiceException;
-
+	protected abstract void putSessionInTxn(Session session)  throws LFIMSServiceException;
 	 
 	protected final Node initRootNode() throws RepositoryException {
 		
@@ -86,21 +79,15 @@ protected final Node initRootNode(LFIMSCompositObject<T> node) throws Repository
 	}
 
 
-	protected final void initSession() throws LoginException, RepositoryException, IllegalStateException, RollbackException, SystemException{
+	protected final void initSession() throws LFIMSServiceException, LoginException, RepositoryException{
 
 		Session session=null;
 	
 		if(!LFIMSJCRSessionThreadLocal.exists()){
 			
 			session = repository.login(new SimpleCredentials("admin","admin".toCharArray()));
-	
+			putSessionInTxn(session);
 			
-			if(transactionManager!=null && transactionManager.getTransaction()!=null){
-				XAResource xaResource=(XAResource)session;
-				transactionManager.getTransaction().enlistResource(xaResource);
-				//If the call is in a transaction then the closure of the session will be done by the synchronizer registered with the transaction below
-				transactionManager.getTransaction().registerSynchronization(new LFIMSTransactionListner());
-			}
 			
 			LFIMSJCRSession jcrSession=new LFIMSJCRSession(session);
 			LFIMSJCRSessionThreadLocal.set(jcrSession);

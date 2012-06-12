@@ -1,29 +1,21 @@
 package com.dreamtech360.lfims.model.service.base;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jcr.AccessDeniedException;
-import javax.jcr.InvalidItemStateException;
-import javax.jcr.ItemExistsException;
+
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.ReferentialIntegrityException;
-import javax.jcr.RepositoryException;
-import javax.jcr.lock.LockException;
-import javax.jcr.nodetype.ConstraintViolationException;
-import javax.jcr.nodetype.NoSuchNodeTypeException;
+
 import javax.jcr.query.QueryResult;
 import javax.jcr.query.qom.Constraint;
 import javax.jcr.query.qom.QueryObjectModel;
-import javax.jcr.version.VersionException;
-import javax.transaction.SystemException;
 
-import com.dreamtech360.lfims.model.base.LFIMSEntityObject;
+
+
 import com.dreamtech360.lfims.model.base.MutableLFIMSEntityObject;
 import com.dreamtech360.lfims.model.base.LFIMSCompositObject;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
@@ -46,7 +38,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 		protected Integer initialValue(){
 			return new Integer(-1);
 		}
-	}
+	} 
 
 	private  static class LIMIT extends ThreadLocal<Integer>{
 
@@ -61,6 +53,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 	protected abstract LFIMSQueryParameters<T> getSearchQueryParameters(Map<LFIMSAttributeMapper<T>, List<String>> searchCriteria) throws LFIMSServiceException;
 	protected abstract LFIMSQueryParameters<T> getDeleteQueryParameters(List<Integer> ids) throws LFIMSServiceException;
 	protected abstract LFIMSObject<T> convertNodeToObject(Node nodes,boolean readOnly)  throws LFIMSServiceException;
+	protected abstract boolean notInTransaction()  throws LFIMSServiceException;
 
 	public LFIMSObject<T> createRecord(int id) {
 
@@ -79,7 +72,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 
@@ -157,7 +150,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -180,7 +173,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -221,7 +214,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -283,8 +276,8 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
-				closeSession();
+				if(notInTransaction())
+					closeSession();
 			} catch (Exception e) {
 
 				e.printStackTrace();
@@ -310,7 +303,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 
@@ -348,7 +341,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 
@@ -382,7 +375,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 
@@ -469,7 +462,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -490,7 +483,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -511,7 +504,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -532,7 +525,7 @@ public abstract class LFIMSModelJCRService<T> extends LFIMSJCRService<T> impleme
 			throw new LFIMSServiceException(e);
 		}finally{
 			try {
-				if(transactionManager==null || transactionManager.getTransaction()==null)
+				if(notInTransaction())
 					closeSession();
 			} catch (Exception e) {
 				e.printStackTrace();

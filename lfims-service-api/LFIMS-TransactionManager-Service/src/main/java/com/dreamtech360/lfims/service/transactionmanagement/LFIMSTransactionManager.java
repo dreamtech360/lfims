@@ -1,32 +1,8 @@
 package com.dreamtech360.lfims.service.transactionmanagement;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.transaction.TransactionManager;
 
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONObject;
-
-import com.dreamtech360.lfims.model.base.LFIMSObject;
-import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
-import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
-
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
-import net.sf.ehcache.Element;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.config.FactoryConfiguration;
-import net.sf.ehcache.constructs.blocking.BlockingCache;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
+import org.objectweb.jotm.Jotm;
 
 
 /* It is the Application's cache manager
@@ -44,14 +20,30 @@ public class LFIMSTransactionManager {
 	}
 	static { 
 	
-		try {
+		
+		
+		       Jotm jotm;
+			try {
+				jotm = new Jotm(true, false);
+				 manager=jotm.getTransactionManager();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		      
+		  
+		
+		
+	/*	try {
 			Context ictx = new InitialContext();
 			manager= (TransactionManager)ictx.lookup("TransactionManager");
+			
+			System.out.println("Found the manager");
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 		

@@ -120,6 +120,7 @@
  	<scope>provided</scope>
  </dependency>
 		
+		
 		<dependency>
   <groupId>org.apache.jackrabbit</groupId>
     <artifactId>jackrabbit-jcr-rmi</artifactId>

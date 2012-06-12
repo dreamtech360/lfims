@@ -1,0 +1,7 @@
+{
+    success: true,
+    branchMaster: [
+         		{id: '1',branchName: 'State Bank Of India',region: 'Kolkata',address: 'Esplaned', contactPhone: '9831583774'},
+                    	{id: '2',branchName: 'State Bank Of India',region: 'Kolkata',address: 'Esplaned', contactPhone: '9831583774'}
+    ]
+}

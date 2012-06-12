@@ -5,9 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
-import javax.transaction.TransactionManager;
+import java.util.Set; 
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
@@ -15,6 +13,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -34,14 +33,16 @@ import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 public class LFIMSCacheManager {
 
 	private static CacheManager cachemanager = null;
-	private static TransactionManager txnManager=null;
+//	private static TransactionManager txnManager=null;
 	
 	static { 
 		net.sf.ehcache.config.Configuration cacheManagerConfig=new net.sf.ehcache.config.Configuration();
 		FactoryConfiguration factoryConfig=new FactoryConfiguration();
-		factoryConfig.setClass(LFIMSTransactionManagerLookup.class.getName());
+	//	System.out.println(LFIMSTransactionManagerLookup.class.getName());
+		factoryConfig.setClass(LFIMSCacheManagementService.getTxnManagerService().getTransactionanagerLookup());
 		cacheManagerConfig.addTransactionManagerLookup(factoryConfig);
 		cachemanager = new CacheManager(cacheManagerConfig);
+	//	cachemanager = new CacheManager();
 		
 	
 	}

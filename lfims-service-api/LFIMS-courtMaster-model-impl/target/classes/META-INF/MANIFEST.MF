@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1338986384688
+Bnd-LastModified: 1339465152981
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Category: productCatalogue
@@ -14,8 +14,8 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.courtmaster;us
  amtech360.lfims.model.search.query,com.dreamtech360.lfims.model.api.cou
  rtmaster,com.dreamtech360.lfims.model.search,com.dreamtech360.lfims.mod
  el.base,com.dreamtech360.lfims.model.service.base,com.dreamtech360.lfim
- s.service.transactionmanagement,javax.transaction,com.dreamtech360.lfim
- s.model.api.impl.courtmaster";version="0.0.1.SNAPSHOT"
+ s.service.transactionmanagement,javax.transaction.xa,com.dreamtech360.l
+ fims.model.api.impl.courtmaster";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.courtmaster;version="[0
  .0,1)",com.dreamtech360.lfims.model.api.impl.courtmaster;version="[0.0,
  1)",com.dreamtech360.lfims.model.base;version="[0.0,1)",com.dreamtech36
@@ -26,5 +26,5 @@ Import-Package: com.dreamtech360.lfims.model.api.courtmaster;version="[0
  ="[0.0,1)",com.dreamtech360.lfims.model.service.impl.courtmaster,com.dr
  eamtech360.lfims.service.transactionmanagement;version="[0.0,1)",javax.
  jcr;version="[2.0,3)",javax.jcr.query.qom;version="[2.0,3)",javax.trans
- action,org.osgi.framework;version="[1.5,2)"
+ action.xa,org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

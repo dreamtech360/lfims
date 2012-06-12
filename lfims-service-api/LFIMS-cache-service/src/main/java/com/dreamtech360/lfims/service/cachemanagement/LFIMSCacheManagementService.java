@@ -5,8 +5,6 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Set;
 
-import javax.transaction.TransactionManager;
-
 import com.dreamtech360.lfims.annotations.LFIMSCacheEntry;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.service.base.LFIMSGenericService;
@@ -16,16 +14,16 @@ import com.dreamtech360.lfims.service.cachemanagement.LFIMSCacheManager.LFIMSCac
 import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 
-public class LFIMSCacheManagementService implements LFIMSGenericService<LFIMSCacheManager> {
+public class LFIMSCacheManagementService implements LFIMSCacheService,LFIMSGenericService<LFIMSCacheService> {
 
-	private static TransactionManager txnManager=null;
-	
+	private static LFIMSTransactionManagementService txnService=null;
+	 
 	public LFIMSCacheManagementService(LFIMSTransactionManagementService txnService){
 		
-		txnManager=txnService.getTransactionManager();
+		LFIMSCacheManagementService.txnService=txnService;
 	}
-	public static TransactionManager getTxnManager(){
-		return txnManager;
+	public static LFIMSTransactionManagementService getTxnManagerService(){
+		return LFIMSCacheManagementService.txnService;
 	}
 	public LFIMSCache getCache(String cacheName){
 		

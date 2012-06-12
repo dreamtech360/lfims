@@ -20,9 +20,10 @@
 					<instructions>
 						<Bundle-Category>productCatalogue</Bundle-Category>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-ClassPath>.</Bundle-ClassPath>
 						<Export-Package>com.dreamtech360.lfims.service.transactionmanagement</Export-Package>
-							<Bundle-Activator>com.dreamtech360.lfims.service.transactionmanagement.activator.LFIMSTransactionManagementServiceActivator</Bundle-Activator>		
-						<Embed-Dependency>*;scope=runtime</Embed-Dependency>		
+							<Bundle-Activator>com.dreamtech360.lfims.service.transactionmanagement.activator.LFIMSTransactionManagementServiceActivator</Bundle-Activator>		 
+				 	<Import-Package>javax.jcr;version="2.0",net.sf.ehcache.transaction.manager,net.sf.ehcache.transaction.xa,org.ow2.carol.rmi.exception,org.ow2.carol.util.configuration,org.apache.commons.logging;version="1.1.1",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lfims.model.service.exception;version="[0.0,1)",com.dreamtech360.lfims.service.transactionmanagement,javax.transaction;version="2.0", javax.transaction.xa,org.objectweb.transaction.jta;version="2.1.9",org.objectweb.jotm;version="2.1.9",org.osgi.framework;version="[1.5,2)"</Import-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
@@ -37,7 +38,52 @@
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
 			
+		<dependency>
+			<groupId>com.dreamtech360.lfims</groupId>
+			<artifactId>LFIMS-base</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+		<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>jotm-core</artifactId>
+			<version>2.1.9</version>
+		</dependency>
+	
+		   
+		<dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>javax-resources-spi</artifactId>
+				<version>1.5.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>carol</artifactId>
+			<version>2.1.9</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>jta</artifactId>
+			<version>2.0</version>
 		</dependency>
 		
 		<dependency>
@@ -46,29 +92,7 @@
           
          </dependency>
       
-      
 		
-		<dependency>
-			<groupId>com.dreamtech360.lfims</groupId>
-			<artifactId>LFIMS-base</artifactId>
-			
-		</dependency>
-		
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
 
-		</dependency>
-
-		<dependency>
-			<groupId>javax.jcr</groupId>
-			<artifactId>jcr</artifactId>
-		</dependency>
-		
-		<dependency>
-		 <groupId>javax.transaction</groupId>
-	 <artifactId>jta</artifactId>
-	 </dependency>
-		
 	</dependencies>
 </project>

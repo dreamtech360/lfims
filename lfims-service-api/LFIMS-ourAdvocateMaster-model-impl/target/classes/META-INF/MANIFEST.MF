@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1338986381237
+Bnd-LastModified: 1339465134794
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Category: productCatalogue
@@ -14,9 +14,9 @@ Export-Package: com.dreamtech360.lfims.model.service.impl.ouradvocatemas
  tion,com.dreamtech360.lfims.model.search.query,com.dreamtech360.lfims.m
  odel.api.ouradvocatemaster,com.dreamtech360.lfims.model.search,com.drea
  mtech360.lfims.model.base,com.dreamtech360.lfims.model.service.base,com
- .dreamtech360.lfims.service.transactionmanagement,javax.transaction,com
- .dreamtech360.lfims.model.api.impl.ouradvocatemaster";version="0.0.1.SN
- APSHOT"
+ .dreamtech360.lfims.service.transactionmanagement,javax.transaction.xa,
+ com.dreamtech360.lfims.model.api.impl.ouradvocatemaster";version="0.0.1
+ .SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.impl.ouradvocatemaster;
  version="[0.0,1)",com.dreamtech360.lfims.model.api.ouradvocatemaster;ve
  rsion="[0.0,1)",com.dreamtech360.lfims.model.base;version="[0.0,1)",com
@@ -27,5 +27,5 @@ Import-Package: com.dreamtech360.lfims.model.api.impl.ouradvocatemaster;
  .exception;version="[0.0,1)",com.dreamtech360.lfims.model.service.impl.
  ouradvocatemaster,com.dreamtech360.lfims.service.transactionmanagement;
  version="[0.0,1)",javax.jcr;version="[2.0,3)",javax.jcr.query.qom;versi
- on="[2.0,3)",javax.transaction,org.osgi.framework;version="[1.5,2)"
+ on="[2.0,3)",javax.transaction.xa,org.osgi.framework;version="[1.5,2)"
 Tool: Bnd-1.50.0
