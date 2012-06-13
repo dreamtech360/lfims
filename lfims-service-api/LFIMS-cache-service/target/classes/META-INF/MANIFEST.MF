@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1339465464276
+Bnd-LastModified: 1339574777073
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.cachemanagement.activat
@@ -22,11 +22,11 @@ Import-Package: com.dreamtech360.lfims.annotations;version="[0.0,1)",com
  .model.service.base;version="[0.0,1)",com.dreamtech360.lfims.model.serv
  ice.exception;version="[0.0,1)",com.dreamtech360.lfims.service.base;ver
  sion="[0.0,1)",com.dreamtech360.lfims.service.cachemanagement,com.dream
- tech360.lfims.service.transactionmanagement;version="[0.0,1)",net.sf.eh
- cache;version="[2.0,3)",net.sf.ehcache.config;version="[2.0,3)",net.sf.
- ehcache.constructs.blocking;version="[2.0,3)",net.sf.ehcache.store;vers
- ion="[2.0,3)",net.sf.ehcache.transaction.manager;version="[2.0,3)",net.
- sf.ehcache.transaction.xa;version="[2.0,3)",org.codehaus.jettison.json;
- version="[1.1,2)",org.objectweb.transaction.jta;version="2.1.9",org.osg
- i.framework;version="[1.5,2)"
+ tech360.lfims.service.transactionmanagement;version="[0.0,1)",javax.tra
+ nsaction;version="2.0",net.sf.ehcache;version="[2.5.2,3)",net.sf.ehcach
+ e.config;version="[2.5.2,3)",net.sf.ehcache.constructs.blocking;version
+ ="[2.5.2,3)",net.sf.ehcache.store;version="[2.5.2,3)",net.sf.ehcache.tr
+ ansaction.manager;version="[2.5.2,3)",net.sf.ehcache.transaction.xa;ver
+ sion="[2.5.2,3)",org.codehaus.jettison.json;version="[1.1,2)",org.osgi.
+ framework;version="[1.5,2)"
 Tool: Bnd-1.50.0

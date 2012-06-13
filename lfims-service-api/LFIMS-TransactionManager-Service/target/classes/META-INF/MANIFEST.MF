@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1339465073996
+Bnd-LastModified: 1339576067686
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.service.transactionmanagement.a
@@ -19,12 +19,11 @@ Export-Package: com.dreamtech360.lfims.service.transactionmanagement;use
  .sf.ehcache.transaction.xa";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.service.base;version="[0.0,
  1)",com.dreamtech360.lfims.model.service.exception;version="[0.0,1)",co
- m.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lf
- ims.service.transactionmanagement,javax.jcr;version="2.0",javax.transac
- tion;version="2.0",javax.transaction.xa,net.sf.ehcache.transaction.mana
- ger;version="[2.0,3)",net.sf.ehcache.transaction.xa;version="[2.0,3)",o
- rg.apache.commons.logging;version="1.1.1",org.objectweb.jotm;version="2
- .1.9",org.objectweb.transaction.jta;version="2.1.9",org.osgi.framework;
- version="[1.5,2)",org.ow2.carol.rmi.exception,org.ow2.carol.util.config
- uration
+ m.dreamtech360.lfims.service.base;version="[0.0,1)",javax.jcr;version="
+ 2.0",javax.transaction;version="2.0",javax.transaction.xa,net.sf.ehcach
+ e.transaction.manager;version="2.5.2",net.sf.ehcache.transaction.xa;ver
+ sion="2.5.2",org.apache.commons.logging;version="1.1.1",org.objectweb.j
+ otm;version="2.1.9",org.objectweb.transaction.jta;version="2.1.9",org.o
+ sgi.framework;version="[1.5,2)",org.ow2.carol.rmi.exception,org.ow2.car
+ ol.util.configuration
 Tool: Bnd-1.50.0

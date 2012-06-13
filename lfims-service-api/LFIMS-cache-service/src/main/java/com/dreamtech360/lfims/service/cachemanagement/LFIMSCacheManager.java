@@ -13,6 +13,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.dreamtech360.lfims.model.base.LFIMSObject;
 import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 
 import net.sf.ehcache.Cache;
@@ -20,11 +21,12 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
+import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.FactoryConfiguration;
 import net.sf.ehcache.constructs.blocking.BlockingCache;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
-
+ 
 /* It is the Application's cache manager
  * Any Class of Attribute marked with LFIMSCacheElement will be cached into the caching layer of the application
  * If the annotation is at a TYPE then the complete object needs to be cached
@@ -37,12 +39,34 @@ public class LFIMSCacheManager {
 	
 	static { 
 		net.sf.ehcache.config.Configuration cacheManagerConfig=new net.sf.ehcache.config.Configuration();
+		
+		
 		FactoryConfiguration factoryConfig=new FactoryConfiguration();
-	//	System.out.println(LFIMSTransactionManagerLookup.class.getName());
+		/*try { 
+			
+			Class.forName(LFIMSTransactionManagerLookup.class.getName()).newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		System.out.println(LFIMSCacheManagementService.getTxnManagerService().getTransactionanagerLookup());
 		factoryConfig.setClass(LFIMSCacheManagementService.getTxnManagerService().getTransactionanagerLookup());
 		cacheManagerConfig.addTransactionManagerLookup(factoryConfig);
-		cachemanager = new CacheManager(cacheManagerConfig);
-	//	cachemanager = new CacheManager();
+		cachemanager = new CacheManager(cacheManagerConfig); 
+		//cachemanager = new CacheManager();
+		
+		
+	//	Configuration configuration = new Configuration();
+	//	configuration.addDefaultCache(new CacheConfiguration("defaultCache", 100));
+		
+	//	cachemanager = new CacheManager(cacheManagerConfig);
+		
 		
 	
 	}
@@ -74,6 +98,12 @@ public class LFIMSCacheManager {
 		public LFIMSCache(String cacheName) {
 			CacheConfiguration config=new CacheConfiguration(cacheName, 1000);
 			config.transactionalMode("xa");
+		/*	TerracottaConfiguration conf=new TerracottaConfiguration();
+			conf.setClustered(true);
+			
+			System.out.println("fvvvvvvvvvv");
+			
+			config.eternal(false).terracotta(conf).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.FIFO);*/
 			config.eternal(true).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.FIFO);
 			Cache tempCache = new Cache(config);
 			

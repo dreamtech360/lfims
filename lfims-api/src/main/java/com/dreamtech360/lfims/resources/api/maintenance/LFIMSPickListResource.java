@@ -23,6 +23,7 @@ import com.dreamtech360.lfims.service.base.LFIMSGenericServiceFactory;
 import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
 import com.dreamtech360.lfims.service.cachemanagement.LFIMSCacheManager.LFIMSCache.Entry;
 import com.dreamtech360.lfims.service.cachemanagement.LFIMSCacheService;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 import com.dreamtech360.lfims.services.ServiceEnum;
 import com.dreamtech360.lfims.util.LFIMSJSONStringer;
 
@@ -34,12 +35,16 @@ public class LFIMSPickListResource {
  
 	private  LFIMSModelService<CaseMaster>   caseMasterService=null;
 	private LFIMSGenericService<LFIMSCacheService> cacheService=null;
+	private LFIMSTransactionManagementService txnService=null;
 
 
 	public LFIMSPickListResource() throws LFIMSServiceException{
 		System.out.println("LFIMSCacheManagementResource Constructor called");
 		LFIMSGenericServiceFactory<LFIMSCacheService> cacheServiceFactory= LFIMSAPIContext.getGenericService(ServiceEnum.CACHE_MANAGEMENT_SERVICE);
 		cacheService=cacheServiceFactory.createService();
+		
+		LFIMSGenericServiceFactory<LFIMSTransactionManagementService> txnMgmtServiceFactory= LFIMSAPIContext.getGenericService(ServiceEnum.TRANSACTION_MANAGEMENT_SERVICE);
+		txnService=(LFIMSTransactionManagementService)txnMgmtServiceFactory.createService();
 		
 		LFIMSModelServiceFactory<CaseMaster>  caseMasterServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_MASTER);
 		caseMasterService=caseMasterServiceFactory.createTxnService();
@@ -48,12 +53,14 @@ public class LFIMSPickListResource {
 		
 		Iterator<LFIMSObject<CaseMaster>> iterator=allCases.iterator();
 		
+		txnService.beginTransaction();
+		
 		while(iterator.hasNext()){
 			LFIMSObject<CaseMaster> caseMaster=iterator.next();
 			((LFIMSCacheService) cacheService).cacheObject(caseMaster);
 			
 		}
-		
+		txnService.commitTransaction();
 	}  
 	
 	@GET  
@@ -64,7 +71,10 @@ public class LFIMSPickListResource {
 		Map<String,String> jsonAttributes=new HashMap<String,String>();
 		jsonAttributes.put("success", "true");
 	
+		txnService.beginTransaction();
 		Set<LFIMSObject<Entry<T, V>>> keysList=((LFIMSCacheService) cacheService).getCacheEntries("respondentName");
+		txnService.commitTransaction();
+		
 		jsonAttributes.put("results", String.valueOf(keysList.size()));
 		LFIMSJSONStringer<Entry<T, V>> stringer=new LFIMSJSONStringer<Entry<T, V>>(keysList,jsonAttributes,"respondentNameList");
 		
@@ -80,8 +90,11 @@ public class LFIMSPickListResource {
 
 		Map<String,String> jsonAttributes=new HashMap<String,String>();
 		jsonAttributes.put("success", "true");
-	
+		
+		txnService.beginTransaction();
 		Set<LFIMSObject<Entry<T, V>>> keysList=((LFIMSCacheService) cacheService).getCacheEntries("caseNo");
+		txnService.commitTransaction();
+		
 		jsonAttributes.put("results", String.valueOf(keysList.size()));
 		LFIMSJSONStringer<Entry<T, V>> stringer=new LFIMSJSONStringer<Entry<T, V>>(keysList,jsonAttributes,"caseNoList");
 		
@@ -98,8 +111,10 @@ public class LFIMSPickListResource {
 		Map<String,String> jsonAttributes=new HashMap<String,String>();
 		jsonAttributes.put("success", "true");
 	
+		txnService.beginTransaction();
 		Set<LFIMSObject<Entry<T, V>>> keysList=((LFIMSCacheService) cacheService).getCacheEntries("rpmaNo");
-	
+		txnService.commitTransaction();
+		
 		jsonAttributes.put("results", String.valueOf(keysList.size()));
 		LFIMSJSONStringer<Entry<T, V>> stringer=new LFIMSJSONStringer<Entry<T, V>>(keysList,jsonAttributes,"rpmNoList");
 		

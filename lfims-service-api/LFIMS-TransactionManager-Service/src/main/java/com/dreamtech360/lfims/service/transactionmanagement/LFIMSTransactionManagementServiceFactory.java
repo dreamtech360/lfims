@@ -4,7 +4,7 @@ import org.osgi.framework.BundleContext;
 import com.dreamtech360.lfims.model.service.base.LFIMSGenericService;
 import com.dreamtech360.lfims.service.base.LFIMSGenericServiceFactory;
 
-public class LFIMSTransactionManagementServiceFactory implements LFIMSGenericServiceFactory<LFIMSTransactionManager>  {
+public class LFIMSTransactionManagementServiceFactory implements LFIMSGenericServiceFactory<LFIMSTransactionManagementService>  {
 
 	
 	private BundleContext context=null;
@@ -18,14 +18,14 @@ public class LFIMSTransactionManagementServiceFactory implements LFIMSGenericSer
 	
 	//More logic could be added here to instanciate te proper model implementation 
 	//for example if a model is based on database or a model in based on jackrabbit
-	public LFIMSGenericService<LFIMSTransactionManager> lookupService() {
+	public LFIMSGenericService<LFIMSTransactionManagementService> lookupService() {
 		// TODO Auto-generated method stub
-		LFIMSGenericService<LFIMSTransactionManager> service=(LFIMSGenericService<LFIMSTransactionManager> )context.getService(context.getServiceReference(LFIMSTransactionManagementService.class.getName()));
+		LFIMSGenericService<LFIMSTransactionManagementService> service=(LFIMSGenericService<LFIMSTransactionManagementService> )context.getService(context.getServiceReference(LFIMSTransactionManagementService.class.getName()));
 		return service;
 	}
 
 	
-	public LFIMSGenericService<LFIMSTransactionManager> createService() {
+	public LFIMSGenericService<LFIMSTransactionManagementService> createService() {
 		// TODO Auto-generated method stub
 		return new LFIMSTransactionManagementService();
 	}

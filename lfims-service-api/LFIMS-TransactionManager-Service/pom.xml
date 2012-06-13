@@ -23,7 +23,7 @@
 						<Bundle-ClassPath>.</Bundle-ClassPath>
 						<Export-Package>com.dreamtech360.lfims.service.transactionmanagement</Export-Package>
 							<Bundle-Activator>com.dreamtech360.lfims.service.transactionmanagement.activator.LFIMSTransactionManagementServiceActivator</Bundle-Activator>		 
-				 	<Import-Package>javax.jcr;version="2.0",net.sf.ehcache.transaction.manager,net.sf.ehcache.transaction.xa,org.ow2.carol.rmi.exception,org.ow2.carol.util.configuration,org.apache.commons.logging;version="1.1.1",com.dreamtech360.lfims.model.service.base;version="[0.0,1)",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lfims.model.service.exception;version="[0.0,1)",com.dreamtech360.lfims.service.transactionmanagement,javax.transaction;version="2.0", javax.transaction.xa,org.objectweb.transaction.jta;version="2.1.9",org.objectweb.jotm;version="2.1.9",org.osgi.framework;version="[1.5,2)"</Import-Package>
+				 	<Import-Package>net.sf.ehcache.transaction.xa;version="2.5.2",net.sf.ehcache.transaction.manager;version="2.5.2",javax.jcr;version="2.0",org.ow2.carol.rmi.exception,org.ow2.carol.util.configuration,	org.apache.commons.logging;version="1.1.1",	com.dreamtech360.lfims.model.service.base;version="[0.0,1)",com.dreamtech360.lfims.service.base;version="[0.0,1)",com.dreamtech360.lfims.model.service.exception;version="[0.0,1)",javax.transaction;version="2.0",javax.transaction.xa,org.objectweb.transaction.jta;version="2.1.9",	org.objectweb.jotm;version="2.1.9",org.osgi.framework;version="[1.5,2)"</Import-Package>
 					</instructions>
 					<remoteOBR>repo-rel</remoteOBR>
 					<prefixUrl>
@@ -86,12 +86,12 @@
 			<version>2.0</version>
 		</dependency>
 		
-		<dependency>
-            <groupId>com.springsource.net.sf.ehcache</groupId>
-            <artifactId>EHCache</artifactId>
-          
-         </dependency>
-      
+		 <dependency>
+			<groupId>com.dreamtech360.lfims.libs</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.5.2</version>
+			<scope>compile</scope>
+		</dependency>
 		
 
 	</dependencies>

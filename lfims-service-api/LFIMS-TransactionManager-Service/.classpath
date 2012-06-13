@@ -11,5 +11,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ow2-jotm-dist-2.1.9/lib/ow2-jta-1.1-spec.jar"/>
+	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ehcache2.5_bundled/ehcache-core-2.5.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

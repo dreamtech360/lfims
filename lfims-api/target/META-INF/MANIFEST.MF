@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1339396110523
+Bnd-LastModified: 1339576933054
 Build-Jdk: 1.6.0_24
 Built-By: SPADHI
 Bundle-Activator: com.dreamtech360.lfims.resources.api.activator.LFIMSAP
@@ -36,9 +36,10 @@ Export-Package: com.dreamtech360.lfims.resources.api.activator;uses:="or
  lfims.model.api.impl.casemgmtmaintenance,com.dreamtech360.lfims.model.a
  pi.branchmaster,com.dreamtech360.lfims.model.api.impl.ouradvocatemaster
  ,com.dreamtech360.lfims.model.api.courtmaster,com.dreamtech360.lfims.se
- rvice.cachemanagement";version="0.0.1.SNAPSHOT",com.dreamtech360.lfims.
- resources.api.exceptions;uses:="com.dreamtech360.lfims.model.service.ex
- ception,javax.ws.rs.core,javax.ws.rs.ext";version="0.0.1.SNAPSHOT"
+ rvice.transactionmanagement,com.dreamtech360.lfims.service.cachemanagem
+ ent";version="0.0.1.SNAPSHOT",com.dreamtech360.lfims.resources.api.exce
+ ptions;uses:="com.dreamtech360.lfims.model.service.exception,javax.ws.r
+ s.core,javax.ws.rs.ext";version="0.0.1.SNAPSHOT"
 Import-Package: com.dreamtech360.lfims.model.api.advocatemaster;version=
  "[0.0,1)",com.dreamtech360.lfims.model.api.bankmaster;version="[0.0,1)"
  ,com.dreamtech360.lfims.model.api.branchmaster;version="[0.0,1)",com.dr

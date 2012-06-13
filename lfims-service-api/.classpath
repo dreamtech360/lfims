@@ -72,9 +72,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/springsource/maven-repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar"/>
-	<classpathentry kind="lib" path="D:/springsource/maven-repository/net/sf/ehcache/ehcache-core/2.5.2/ehcache-core-2.5.2.jar"/>
 	<classpathentry kind="src" path="/LFIMS-TransactionManager-Service"/>
 	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ow2-jotm-dist-2.1.9/lib/osgi/jotm-core.jar"/>
 	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ow2-jotm-dist-2.1.9/lib/osgi/jta.jar"/>
+	<classpathentry kind="lib" path="D:/Felix-4.2.0/lib/ehcache2.5_bundled/ehcache-core-2.5.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

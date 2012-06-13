@@ -9,7 +9,7 @@ import com.dreamtech360.lfims.model.service.base.LFIMSGenericService;
 import com.dreamtech360.lfims.model.service.base.LFIMSJCRSessionThreadLocal;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
 
-public class LFIMSTransactionManagementService implements LFIMSGenericService<LFIMSTransactionManager> {
+public class LFIMSTransactionManagementService implements LFIMSGenericService<LFIMSTransactionManagementService> {
 
 	 
 	/*public static TransactionManager getTransactionManager(){
