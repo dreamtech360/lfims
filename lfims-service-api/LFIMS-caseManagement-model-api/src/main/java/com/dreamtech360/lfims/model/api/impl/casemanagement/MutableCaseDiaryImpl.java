@@ -11,6 +11,7 @@ import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 public class MutableCaseDiaryImpl implements MutableCaseDiary{
 
 	private int id;
+	private Date diaryPostingDate;
 	private String uuid;
 	private Date hearingDate;
 	private String beforeBenchName;
@@ -29,6 +30,7 @@ public class MutableCaseDiaryImpl implements MutableCaseDiary{
 	public MutableCaseDiaryImpl(
 			int id,
 			//String uuid,
+			Date diaryPostingDate,
 			Date hearingDate,
 			String beforeBenchName,
 			String ourAdvocateName,
@@ -45,6 +47,7 @@ public class MutableCaseDiaryImpl implements MutableCaseDiary{
 			){
 		this.id=id;
 		//this.uuid=uuid;
+		this.diaryPostingDate=diaryPostingDate;
 		this.hearingDate=hearingDate;
 		this.beforeBenchName=beforeBenchName;
 		this.ourAdvocateName=ourAdvocateName;
@@ -75,7 +78,12 @@ public int getId() {
 		this.id = id;
 	}
 
-
+public Date getDiaryPostingDate(){
+	return diaryPostingDate;
+}
+public void setDiaryPostingDate(Date diaryPostingDate){
+	this.diaryPostingDate=diaryPostingDate;
+}
 	public Date getHearingDate() {
 		return hearingDate;
 	}

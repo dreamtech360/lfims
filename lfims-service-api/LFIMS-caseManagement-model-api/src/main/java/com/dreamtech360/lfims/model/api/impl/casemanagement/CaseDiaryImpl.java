@@ -9,6 +9,7 @@ public class CaseDiaryImpl implements CaseDiary{
 	
 	private int id;
 	private String uuid;
+	private Date diaryPostingDate;
 	private Date hearingDate;
 	private String beforeBenchName;
 	private String ourAdvocateName;
@@ -25,6 +26,7 @@ public class CaseDiaryImpl implements CaseDiary{
 
 	public CaseDiaryImpl(
 			int id,
+			Date diaryPostingDate,
 			Date hearingDate,
 			String beforeBenchName,
 			String ourAdvocateName,
@@ -40,6 +42,7 @@ public class CaseDiaryImpl implements CaseDiary{
 			Date nextDatePurpose
 			){
 		this.id=id;
+		this.diaryPostingDate=diaryPostingDate;
 		this.hearingDate=hearingDate;
 		this.beforeBenchName=beforeBenchName;
 		this.ourAdvocateName=ourAdvocateName;
@@ -57,6 +60,9 @@ public class CaseDiaryImpl implements CaseDiary{
 	
 	public int getId() {
 		return id;
+	}
+	public Date getDiaryPostingDate(){
+		return diaryPostingDate;
 	}
 	public Date getHearingDate() {
 		return hearingDate;
@@ -107,6 +113,7 @@ public class CaseDiaryImpl implements CaseDiary{
 		try {
 			object.put("id", this.id);
 			object.put("uuid", this.uuid);
+			object.put("diaryPostingDate", this.diaryPostingDate);
 			object.put("hearingDate",this.hearingDate);
 			object.put("beforeBenchName",this.beforeBenchName);
 			object.put("ourAdvocateName",this.ourAdvocateName);

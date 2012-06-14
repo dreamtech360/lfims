@@ -1,11 +1,36 @@
-Ext.define('lfims.view.caseMaster.CaseDetailsList' ,{
-	extend: 'Ext.grid.Panel',
+Ext.define('lfims.view.caseMaster.CaseDetailsList', {
+	extend: 'Ext.panel.Panel',
 	id: 'CaseDetailsList',
+	alias : 'widget.CaseDetailsList',
+	layout : {
+		type : 'vbox',
+		align : 'stretch'
+
+	},
+	items: [
+
+	        {xtype:'CaseDetailsListView',
+					    mode:'new'
+			},
+	        {
+	        	xtype: 'splitter',
+	        	collapsible: true,
+	        	collapseTarget: 'prev'
+	        },
+	        {xtype:'CaseDetailsListView',
+			    mode:'new'
+	        }
+	        ]
+});
+
+
+
+Ext.define('lfims.view.caseMaster.CaseDetailsListView' ,{
+	extend: 'Ext.grid.Panel',
 	frame: true,
 	plugins: [gridheaderfilters],
 	//features: [groupingFeature],
-	alias : 'widget.CaseDetailsList',
-	id: 'CaseDetailsList',
+	alias : 'widget.CaseDetailsListView',
 	store: 'caseMasterDetails',
 	stateful: false,
 	multiSelect: true,
@@ -247,16 +272,14 @@ initComponent: function() {
 	                {
 	                    xtype:'actioncolumn',
 	                    header : 'Actions',
+	                    
 	                    flex: 1,
 	                   
 	                    items: [{
 	                    	
-	                        icon: '/lfims/extjs/resources/images/add.png',  // Use a URL in the icon config
+	                        icon: '/lfims/extjs/resources/images/diary.png',  // Use a URL in the icon config
 	                        tooltip: 'Edit',
-	                        handler: function(grid, rowIndex, colIndex) {
-	                            var rec = grid.getStore().getAt(rowIndex);
-	                            alert("Edit " + rec.get('firstname'));
-	                        }
+	                        iconCls: 'icon-cursor'
 	                    },
 	                    {
 	                    	
@@ -267,10 +290,8 @@ initComponent: function() {
 	                    	
 	                        icon: '/lfims/extjs/resources/images/add.png',
 	                        tooltip: 'Delete',
-	                        handler: function(grid, rowIndex, colIndex) {
-	                            var rec = grid.getStore().getAt(rowIndex);
-	                            alert("Terminate " + rec.get('firstname'));
-	                        }
+	                        iconCls: 'icon-cursor'
+	                        
 	                    }]
 	                }
 	               

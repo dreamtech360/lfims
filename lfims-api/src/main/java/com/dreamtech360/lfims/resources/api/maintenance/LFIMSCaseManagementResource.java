@@ -31,7 +31,10 @@ import com.dreamtech360.lfims.model.service.exception.LFIMSModelException;
 import com.dreamtech360.lfims.model.service.exception.LFIMSServiceException;
 
 import com.dreamtech360.lfims.resources.api.activator.LFIMSAPIContext;
+import com.dreamtech360.lfims.service.base.LFIMSGenericServiceFactory;
 import com.dreamtech360.lfims.service.base.LFIMSModelServiceFactory;
+import com.dreamtech360.lfims.service.cachemanagement.LFIMSCacheService;
+import com.dreamtech360.lfims.service.transactionmanagement.LFIMSTransactionManagementService;
 
 import com.dreamtech360.lfims.services.ServiceEnum;
 import com.dreamtech360.lfims.util.LFIMSJSONStringer;
@@ -46,6 +49,8 @@ public class LFIMSCaseManagementResource {
 	private  LFIMSModelService<CaseDiary>  caseDiaryService=null;
 	private  LFIMSModelService<ImportantDocuments>  caseImportantDocumentsService=null;
 	private  LFIMSModelService<SecurityDetails>  caseSecurityDetailsService=null;
+	private LFIMSTransactionManagementService txnService=null;
+	private LFIMSCacheService cacheService=null;
 	
 	public LFIMSCaseManagementResource(){
 		System.out.println("LFIMSCaseManagementResource Constructor called");
@@ -54,12 +59,16 @@ public class LFIMSCaseManagementResource {
 		LFIMSModelServiceFactory<ImportantDocuments> caseImportantDocumentsServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_IMPORTANT_DOCUMENTS);
 		LFIMSModelServiceFactory<SecurityDetails> caseSecurityDetailsServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_SECURITY_DETAILS);
 		LFIMSModelServiceFactory<CaseDiary> caseDiaryServiceFactory= LFIMSAPIContext.getService(ServiceEnum.CASE_DIARY);
+		LFIMSGenericServiceFactory<LFIMSTransactionManagementService> txnServiceFactory=LFIMSAPIContext.getGenericService(ServiceEnum.TRANSACTION_MANAGEMENT_SERVICE);
+		LFIMSGenericServiceFactory<LFIMSCacheService> cacheServiceFactory=LFIMSAPIContext.getGenericService(ServiceEnum.CACHE_MANAGEMENT_SERVICE);
 		
 		caseMasterService=caseMasterServiceFactory.createTxnService();
 		caseDefendentDetailsService =caseDefendentDetailsServiceFactory.createTxnService();
 		caseDiaryService=caseDiaryServiceFactory.createTxnService();
 		caseImportantDocumentsService=caseImportantDocumentsServiceFactory.createTxnService();
 		caseSecurityDetailsService=caseSecurityDetailsServiceFactory.createTxnService();
+		txnService=(LFIMSTransactionManagementService)txnServiceFactory.createService();
+		cacheService=(LFIMSCacheService)cacheServiceFactory.createService();
 	} 
 	
 
@@ -142,7 +151,10 @@ public class LFIMSCaseManagementResource {
 		System.out.println("===================");
 		System.out.println(caseMasterRecord.getJSONString());
 		System.out.println("===================");
-		caseMasterService.storeRecord(caseMasterRecord);
+		txnService.beginTransaction();
+		Map<String,LFIMSObject<CaseMaster>> data=caseMasterService.storeRecord(caseMasterRecord);
+		cacheService.cacheObject(data.get(data.keySet().iterator().next()));
+		txnService.commitTransaction();
 
 		return Response.status(200).build();
 	} 

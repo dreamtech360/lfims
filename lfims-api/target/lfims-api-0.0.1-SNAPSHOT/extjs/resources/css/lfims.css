@@ -17,6 +17,7 @@
     background-image: url("/lfims/extjs/resources/images/delete.gif") !important;
 }
 
+.icon-cursor { cursor: pointer; }
 .example-info {
     -moz-border-bottom-colors: none;
     -moz-border-image: none;

@@ -18,11 +18,11 @@ Ext.define('lfims.controller.caseMaster', {
 	        'caseMaster.CaseManagementTabs'
 	        
 	        ],
-	stores: ['caseMasterDetails'
-	         //,'caseMasterDefendent','caseMasterDiary','caseMasterImportantDocuments','caseMasterSecurity'
+	stores: ['caseMasterDetails','caseMasterDiary'
+	         //,'caseMasterDefendent','caseMasterImportantDocuments','caseMasterSecurity'
 	         ],
-	models: ['caseMaster.caseMasterDetails'
-	         //,'caseMaster.caseMasterDefendent','caseMaster.caseMasterDiary','caseMaster.caseMasterImportantDocuments','caseMaster.caseMasterSecurity'
+	models: ['caseMaster.caseMasterDetails',
+	         'caseMaster.caseMasterDiary'//,'caseMaster.caseMasterDefendent','caseMaster.caseMasterImportantDocuments','caseMaster.caseMasterSecurity'
 	         ],
 
 
@@ -48,6 +48,9 @@ Ext.define('lfims.controller.caseMaster', {
 				select: this.recordselect,
 				itemdblclick : this.loadCaseDetails
 			},
+			'CaseDetailsList actioncolumn': {
+				click: this.onAction
+			},
 			'#NewCase':{
 				click: this.createNewRecord
 			},
@@ -61,6 +64,18 @@ Ext.define('lfims.controller.caseMaster', {
 		});
 	},
 
+	 onAction: function(view,cell,row,col,e){
+		 var rec = this.getCaseMasterDetailsStore().getAt(row);
+       //  alert("Open the Case Diary for: " + rec.get('uuid'));
+         var action = e.target.getAttribute('class');
+         if (action.indexOf("x-action-col-0") != -1) {
+             console.log('You chose to do THIS to ' + rec.get('uuid')); //where id is the name of a dataIndex
+         }
+         else if (action.indexOf("x-action-col-2") != -1) {
+             console.log('You chose to do THAT to ' + rec.get('uuid'));
+         }
+	 },
+	 
 	//This method is called when user clicks the Save button on the form
 	updateCaseMasterDetails: function(button) {
 		console.log('called save case details method method');

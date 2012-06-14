@@ -6,7 +6,7 @@ import com.dreamtech360.lfims.model.base.LFIMSCompositObject;
 public interface CaseDiary extends  LFIMSCompositObject<CaseDiary> {
 	
 	
-	
+	public Date getDIaryPostingDate();
 	public Date getHearingDate(); 
 	public String getBeforeBenchName();
 	public String getOurAdvocateName();

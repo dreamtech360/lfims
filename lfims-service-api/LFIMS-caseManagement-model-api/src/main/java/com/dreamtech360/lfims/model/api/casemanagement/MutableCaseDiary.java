@@ -6,7 +6,7 @@ import com.dreamtech360.lfims.model.base.MutableLFIMSEntityObject;
 
 public interface MutableCaseDiary extends CaseDiary, MutableLFIMSEntityObject<CaseDiary> {
 	
-	 
+	public void setDiaryPostingDate(Date diaryPostingDate); 
 	public void setHearingDate(Date hearingDate) ;
 	public void setBeforeBenchName(String beforeBenchName) ;
 	public void setOurAdvocateName(String ourAdvocateName);
